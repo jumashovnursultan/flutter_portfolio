@@ -31,15 +31,57 @@ flutter:
     - assets/icons/
     - assets/images/
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  fonts:
+    - family: SF-Pro-Display
+      fonts:
+        - asset: assets/font/SF-Pro-Display-Ultralight.ttf
+          weight: 100
+        - asset: assets/font/SF-Pro-Display-UltralightItalic.ttf
+          weight: 100
+          style: italic
 
+        - asset: assets/font/SF-Pro-Display-Thin.ttf
+          weight: 200
+        - asset: assets/font/SF-Pro-Display-ThinItalic.ttf
+          weight: 200
+          style: italic
+
+        - asset: assets/font/SF-Pro-Display-Light.ttf
+          weight: 300
+        - asset: assets/font/SF-Pro-Display-LightItalic.ttf
+          weight: 300
+          style: italic
+
+        - asset: assets/font/SF-Pro-Display-Regular.ttf
+        - asset: assets/font/SF-Pro-Display-RegularItalic.ttf
+          style: italic
+
+        - asset: assets/font/SF-Pro-Display-Medium.ttf
+          weight: 500
+        - asset: assets/font/SF-Pro-Display-MediumItalic.ttf
+          weight: 500
+          style: italic
+
+        - asset: assets/font/SF-Pro-Display-Semibold.ttf
+          weight: 600
+        - asset: assets/font/SF-Pro-Display-SemiboldItalic.ttf
+          weight: 600
+          style: italic
+
+        - asset: assets/font/SF-Pro-Display-Bold.ttf
+          weight: 700
+        - asset: assets/font/SF-Pro-Display-BoldItalic.ttf
+          weight: 700
+          style: italic
+
+        - asset: assets/font/SF-Pro-Display-Heavy.ttf
+          weight: 800
+        - asset: assets/font/SF-Pro-Display-HeavyItalic.ttf
+          weight: 800
+          style: italic
+
+        - asset: assets/font/SF-Pro-Display-Black.ttf
+          weight: 900
+        - asset: assets/font/SF-Pro-Display-BlackItalic.ttf
+          weight: 900
+          style: italic
