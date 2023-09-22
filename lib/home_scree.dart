@@ -33,17 +33,9 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(height: 40),
-                  RichText(
-                    text: const TextSpan(
-                      text: 'Welcome',
-                      style: AppStyle.styleWBlackW600S40,
-                      children: [
-                        TextSpan(
-                          text: '!',
-                          style: AppStyle.styleWGreenW600S40,
-                        ),
-                      ],
-                    ),
+                  const TitleTextWidget(
+                    firstText: 'Welcome',
+                    secondText: '!',
                   ),
                   const SizedBox(height: 20),
                   Padding(
@@ -60,17 +52,9 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        RichText(
-                          text: const TextSpan(
-                            text: 'About ',
-                            style: AppStyle.styleWBlackW600S40,
-                            children: [
-                              TextSpan(
-                                text: 'me',
-                                style: AppStyle.styleWGreenW600S40,
-                              ),
-                            ],
-                          ),
+                        TitleTextWidget(
+                          firstText: 'About',
+                          secondText: 'me',
                         ),
                         const Text(
                           'I am Talgat, Mobile App Developer from Kyrgyzstan. Have experience Flutter for android, ios. Also in UI/UX design.',
@@ -106,24 +90,103 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Experience',
-                          style: AppStyle.styleWGreenW600S40,
-                        ),
+                        TitleTextWidget(firstText: 'Experience'),
                         Text(
                           'I am Talgat, Mobile App Developer from Kyrgyzstan. Have experience Flutter for android, ios. Also in UI/UX design.',
                           style: TextStyle(fontSize: 20),
+                        ),
+                        SizedBox(height: 40),
+                        WorkExperienceWidget(
+                          companyName: 'Oracle Digital',
+                          position: 'Flutter developer',
+                          date: '2022 August - 2023 September',
+                        ),
+                        SizedBox(height: 50),
+                        Divider(
+                          color: Color(0xFFE3E3E3),
+                          thickness: 1,
+                        ),
+                        SizedBox(height: 50),
+                        TitleTextWidget(
+                          firstText: 'My',
+                          secondText: 'Skills',
                         )
                       ],
                     ),
                   ),
-                  const SizedBox(height: 40),
                 ],
               ),
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class TitleTextWidget extends StatelessWidget {
+  const TitleTextWidget({
+    super.key,
+    required this.firstText,
+    this.secondText,
+  });
+
+  final String firstText;
+  final String? secondText;
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+        text: firstText,
+        style: secondText != null
+            ? AppStyle.styleWBlackW600S40
+            : AppStyle.styleWGreenW600S40,
+        children: [
+          TextSpan(
+            text: secondText,
+            style: AppStyle.styleWGreenW600S40,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class WorkExperienceWidget extends StatelessWidget {
+  const WorkExperienceWidget({
+    super.key,
+    required this.companyName,
+    required this.position,
+    required this.date,
+  });
+
+  final String companyName;
+  final String position;
+  final String date;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          companyName,
+          style: AppStyle.styleWBlackW600S40,
+        ),
+        const SizedBox(height: 15),
+        Text(
+          position,
+          style: const TextStyle(fontSize: 20),
+        ),
+        Text(
+          date,
+          style: const TextStyle(
+            fontSize: 20,
+            color: Color(0xFF34C759),
+          ),
+        ),
+      ],
     );
   }
 }
