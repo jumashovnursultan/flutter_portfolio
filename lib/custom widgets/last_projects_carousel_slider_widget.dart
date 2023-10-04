@@ -42,4 +42,5 @@ class LastProjectsCarouselSliderWidget extends StatelessWidget {
       return 0.8;
     }
   }
+  //
 }
