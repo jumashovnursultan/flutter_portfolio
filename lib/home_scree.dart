@@ -133,7 +133,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 30),
                   LastProjectsCarouselSliderWidget(),
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 100),
                 ],
               ),
             ),
