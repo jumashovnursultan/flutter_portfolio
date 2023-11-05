@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:my_portfolio_app/custom%20widgets/title_text_widget.dart';
 import 'package:my_portfolio_app/custom%20widgets/work_experience_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'custom widgets/hard_skills_widget.dart';
 import 'custom widgets/last_projects_carousel_slider_widget.dart';
@@ -72,13 +73,49 @@ class HomeScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SvgPicture.asset('assets/icons/gmail.svg'),
+                      InkWell(
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          splashColor: Colors.transparent,
+                          onTap: () => launchUrl(
+                                Uri.parse(
+                                    'mailto:nursultanjumashovv@gmail.com'),
+                                mode: LaunchMode.externalApplication,
+                              ),
+                          child: SvgPicture.asset('assets/icons/gmail.svg')),
                       const SizedBox(width: 10),
-                      SvgPicture.asset('assets/icons/github.svg'),
+                      InkWell(
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          splashColor: Colors.transparent,
+                          onTap: () => launchUrl(
+                                Uri.parse(
+                                    'https://github.com/jumashovnursultan'),
+                                mode: LaunchMode.externalApplication,
+                              ),
+                          child: SvgPicture.asset('assets/icons/github.svg')),
                       const SizedBox(width: 10),
-                      SvgPicture.asset('assets/icons/telegram.svg'),
+                      InkWell(
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          splashColor: Colors.transparent,
+                          onTap: () => launchUrl(
+                                Uri.parse('tg://t.me/nursultanjumashov'),
+                                mode: LaunchMode.externalApplication,
+                              ),
+                          child: SvgPicture.asset('assets/icons/telegram.svg')),
                       const SizedBox(width: 10),
-                      SvgPicture.asset('assets/icons/instagram.svg'),
+                      InkWell(
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          splashColor: Colors.transparent,
+                          onTap: () => launchUrl(
+                                Uri.parse(
+                                    'https://www.instagram.com/nursultanjumashov_/'),
+                                mode: LaunchMode.externalApplication,
+                              ),
+                          child:
+                              SvgPicture.asset('assets/icons/instagram.svg')),
                     ],
                   ),
                   const SizedBox(height: 10),
