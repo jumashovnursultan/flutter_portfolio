@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:my_portfolio_app/const/custom_scroll_behavior.dart';
 import 'package:my_portfolio_app/data/list_of_application_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 final listOfApplication = [
   ApplicationModel(
@@ -18,7 +20,7 @@ final listOfApplication = [
     language: 'Flutter',
     playMarketLink:
         'https://play.google.com/store/apps/details?id=com.tologon.kudaiberdiuulu.osh.online',
-    appStoreLink: 'https://apps.apple.com/app/ош-online/id6444031624',
+    appStoreLink: 'https://apps.apple.com/app/ош-online/id6444031624', /////
   ),
   ApplicationModel(
     logo: 'assets/icons/e_service_logo.png',
@@ -26,7 +28,7 @@ final listOfApplication = [
     language: 'Flutter',
     playMarketLink:
         'https://play.google.com/store/apps/details?id=dev.electronica_service_mob',
-    appStoreLink: '',
+    // appStoreLink: '',
   ),
   ApplicationModel(
     logo: 'assets/icons/jalal_abad_logo.jpg',
@@ -34,7 +36,7 @@ final listOfApplication = [
     language: 'Flutter',
     playMarketLink:
         'https://play.google.com/store/apps/details?id=com.tologon.kudaiberdiuulu.jalalabad.online',
-    appStoreLink: '',
+    appStoreLink: 'https://apps.apple.com/app/ош-online/id6444031624',
   ),
   ApplicationModel(
     logo: 'assets/icons/kara_balta_logo.png',
@@ -42,7 +44,7 @@ final listOfApplication = [
     language: 'Flutter',
     playMarketLink:
         'https://play.google.com/store/apps/details?id=dev.kara_balta.odigital',
-    appStoreLink: '',
+    appStoreLink: 'https://apps.apple.com/app/ош-online/id6444031624',
   ),
   ApplicationModel(
     logo: 'assets/icons/willex_cargo_logo.png',
@@ -50,7 +52,7 @@ final listOfApplication = [
     language: 'Flutter',
     playMarketLink:
         'https://play.google.com/store/apps/details?id=dev.odigital.willex',
-    appStoreLink: '',
+    appStoreLink: 'https://apps.apple.com/kg/app/willex/id6457265010',
   ),
   ApplicationModel(
     logo: 'assets/icons/sapat_cargo_logo.png',
@@ -58,7 +60,7 @@ final listOfApplication = [
     language: 'Flutter',
     playMarketLink:
         'https://play.google.com/store/apps/details?id=dev.sapat_cargo_mob',
-    appStoreLink: '',
+    appStoreLink: 'https://apps.apple.com/kg/app/sapat-cargo/id6466813542',
   ),
   ApplicationModel(
     logo: 'assets/icons/manas_logis_logo.png',
@@ -66,7 +68,7 @@ final listOfApplication = [
     language: 'Flutter',
     playMarketLink:
         'https://play.google.com/store/apps/details?id=dev.odigital.manas_logis',
-    appStoreLink: '',
+    appStoreLink: 'https://apps.apple.com/kg/app/manas-logis/id6464329215',
   ),
   ApplicationModel(
     logo: 'assets/icons/taura_express_logo.png',
@@ -74,7 +76,8 @@ final listOfApplication = [
     language: 'Flutter',
     playMarketLink:
         'https://play.google.com/store/apps/details?id=dev.odigital.taura_express',
-    appStoreLink: '',
+    appStoreLink: 'https://apps.apple.com/kg/app/taura-express/id6450018127',
+    webLink: 'https://taurakg.com/',
   ),
   ApplicationModel(
     logo: 'assets/icons/opop_logo.webp',
@@ -82,13 +85,7 @@ final listOfApplication = [
     language: 'Flutter',
     playMarketLink:
         'https://play.google.com/store/apps/details?id=app.odigital.opop',
-    appStoreLink: '',
-  ),
-  ApplicationModel(
-    logo: 'taura_trans_logistic_logo.png',
-    name: 'Taura TRANS Logistic',
-    language: 'Flutter',
-    webLink: 'https://taurakg.com/',
+    appStoreLink: 'https://apps.apple.com/kg/app/opop/id6444595393',
   ),
 ];
 
@@ -128,7 +125,7 @@ class LastProjectsCarouselSliderWidget extends StatelessWidget {
           //   },
           // ),
           SizedBox(
-        height: 340,
+        height: 360,
         child: PageView.builder(
           controller: PageController(
             viewportFraction: getAdaptiveViewPortFraction(context),
@@ -138,35 +135,94 @@ class LastProjectsCarouselSliderWidget extends StatelessWidget {
           itemBuilder: (context, index) {
             final item = listOfApplication[index];
             return Container(
-              margin: const EdgeInsets.only(right: 30),
-              color: Colors.transparent,
-              // color: index == 0
-              //     ? Colors.red
-              //     : index == 1
-              //         ? Colors.green
-              //         : index == 2
-              //             ? Colors.blue
-              //             : index == 3
-              //                 ? Colors.yellow
-              //                 : index == 4
-              //                     ? Colors.purple
-              //                     : index == 5
-              //                         ? Colors.orange
-              //                         : index == 6
-              //                             ? Colors.pink
-              //                             : index == 7
-              //                                 ? Colors.teal
-              //                                 : index == 8
-              //                                     ? Colors.brown
-              //                                     : index == 9
-              //                                         ? Colors.grey
-              //                                         : Colors.black,
+              margin: const EdgeInsets.only(right: 30, top: 10, bottom: 20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.2),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
               child: Column(
                 children: [
-                  Image.asset(
-                    item.logo,
-                    height: 200,
-                    width: 200,
+                  const SizedBox(height: 30),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(50),
+                    child: Image.asset(
+                      item.logo,
+                      height: 100,
+                      width: 100,
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                  Text(
+                    item.name,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    item.language,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  const SizedBox(height: 25),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (item.appStoreLink != null)
+                        InkWell(
+                          onTap: () => launchUrl(
+                            Uri.parse(item.appStoreLink!),
+                            mode: LaunchMode.externalApplication,
+                          ),
+                          child: SvgPicture.asset(
+                            'assets/icons/app-store_logo.svg',
+                            height: 23,
+                            width: 23,
+                          ),
+                        ),
+                      if (item.playMarketLink != null) ...[
+                        const SizedBox(width: 10),
+                        InkWell(
+                          onTap: () => launchUrl(
+                            Uri.parse(item.playMarketLink!),
+                            mode: LaunchMode.externalApplication,
+                          ),
+                          child: SvgPicture.asset(
+                            'assets/icons/play-store_logo.svg',
+                            height: 20,
+                            width: 20,
+                          ),
+                        ),
+                      ],
+                      if (item.webLink != null) ...[
+                        const SizedBox(width: 10),
+                        InkWell(
+                          onTap: () => launchUrl(
+                            Uri.parse(item.webLink!),
+                            mode: LaunchMode.externalApplication,
+                          ),
+                          child: SvgPicture.asset(
+                            'assets/icons/chrome_logo.svg',
+                            height: 20,
+                            width: 20,
+                          ),
+                        ),
+                      ],
+                    ],
                   ),
                 ],
               ),
@@ -179,26 +235,70 @@ class LastProjectsCarouselSliderWidget extends StatelessWidget {
 
   double getAdaptiveViewPortFraction(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    if (screenWidth >= 1400) {
-      return 0.25;
-    } else if (screenWidth >= 1200) {
-      return 0.3;
-    } else if (screenWidth >= 800) {
-      return 0.35;
-    } else if (screenWidth >= 700) {
-      return 0.45;
-    } else if (screenWidth >= 600) {
-      return 0.5;
-    } else if (screenWidth >= 500) {
-      return 0.6;
-    } else if (screenWidth >= 400) {
-      return 0.8;
-    } else if (screenWidth >= 300) {
+    if (screenWidth <= 280) {
+      return 0.95;
+    } else if (screenWidth <= 320) {
       return 0.9;
-    } else if (screenWidth >= 200) {
-      return 1.2;
+    } else if (screenWidth <= 360) {
+      return 0.8;
+    } else if (screenWidth <= 400) {
+      return 0.7;
+    } else if (screenWidth <= 440) {
+      return 0.6;
+    } else if (screenWidth <= 480) {
+      return 0.55;
+    } else if (screenWidth <= 520) {
+      return 0.5;
+    } else if (screenWidth <= 560) {
+      return 0.5;
+    } else if (screenWidth <= 600) {
+      return 0.45;
+    } else if (screenWidth <= 640) {
+      return 0.4;
+    } else if (screenWidth <= 680) {
+      return 0.4;
+    } else if (screenWidth <= 720) {
+      return 0.4;
+    } else if (screenWidth <= 760) {
+      return 0.35;
+    } else if (screenWidth <= 800) {
+      return 0.35;
+    } else if (screenWidth <= 840) {
+      return 0.3;
+    } else if (screenWidth <= 880) {
+      return 0.3;
+    } else if (screenWidth <= 920) {
+      return 0.3;
+    } else if (screenWidth <= 960) {
+      return 0.3;
+    } else if (screenWidth <= 1000) {
+      return 0.28;
+    } else if (screenWidth <= 1040) {
+      return 0.28;
+    } else if (screenWidth <= 1080) {
+      return 0.25;
+    } else if (screenWidth <= 1120) {
+      return 0.25;
+    } else if (screenWidth <= 1260) {
+      return 0.22;
+    } else if (screenWidth <= 1300) {
+      return 0.21;
+    } else if (screenWidth <= 1340) {
+      return 0.20;
+    } else if (screenWidth <= 1380) {
+      return 0.19;
+    } else if (screenWidth <= 1420) {
+      return 0.18;
+    } else if (screenWidth <= 1460) {
+      return 0.17;
+    } else if (screenWidth <= 1500) {
+      return 0.16;
+    } else if (screenWidth <= 1540) {
+      return 0.15;
+    } else if (screenWidth <= 1580) {
+      return 0.14;
     } else {
-      return 1.3;
+      return 0.13;
     }
   }
 }
