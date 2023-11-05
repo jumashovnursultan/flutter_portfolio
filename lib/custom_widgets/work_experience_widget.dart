@@ -32,7 +32,7 @@ class WorkExperienceWidget extends StatelessWidget {
           date,
           style: const TextStyle(
             fontSize: 20,
-            color: Color(0xFF34C759),
+            // color: Color(0xFF34C759),
           ),
         ),
       ],

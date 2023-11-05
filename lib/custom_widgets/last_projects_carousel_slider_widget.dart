@@ -97,34 +97,7 @@ class LastProjectsCarouselSliderWidget extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return ScrollConfiguration(
       behavior: CustomScrollBehavior(),
-      child:
-          // CarouselSlider.builder(
-          //   options: CarouselOptions(
-          //       viewportFraction: 0.6,
-          //       autoPlay: true,
-          //       enableInfiniteScroll: false,
-          //       // autoPlayInterval: const Duration(seconds: 10),
-          //       onPageChanged: (index, reason) {}
-          //       // setState(() => activIndex = index),
-          //       ),
-          //   itemCount: 10,
-          //   itemBuilder: (context, index, realIndex) {
-          //     // final urlImage = widget.images[index];
-          //     return Container(
-          //       margin: const EdgeInsets.symmetric(horizontal: 20),
-          //       decoration: BoxDecoration(
-          //         borderRadius: BorderRadius.circular(20),
-          //         color: index == 0
-          //             ? Colors.red
-          //             : index == 1
-          //                 ? Colors.green
-          //                 : Colors.blue,
-          //       ),
-          //       height: 1,
-          //     );
-          //   },
-          // ),
-          SizedBox(
+      child: SizedBox(
         height: 360,
         child: PageView.builder(
           controller: PageController(

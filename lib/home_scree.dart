@@ -1,22 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:my_portfolio_app/custom%20widgets/title_text_widget.dart';
-import 'package:my_portfolio_app/custom%20widgets/work_experience_widget.dart';
+import 'package:my_portfolio_app/custom_widgets/menu_row_widget.dart';
+import 'package:my_portfolio_app/custom_widgets/title_text_widget.dart';
+import 'package:my_portfolio_app/custom_widgets/work_experience_widget.dart';
+import 'package:my_portfolio_app/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'custom widgets/hard_skills_widget.dart';
-import 'custom widgets/last_projects_carousel_slider_widget.dart';
+import 'custom_widgets/hard_skills_widget.dart';
+import 'custom_widgets/last_projects_carousel_slider_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final ScrollController _scrollController = ScrollController();
+  bool showBottomAppbar = false;
+
+  Future<void> _postInit(double scrollExtent) async {
+    await Future.delayed(const Duration(milliseconds: 100));
+    _scrollController.animateTo(
+      scrollExtent,
+      duration: const Duration(seconds: 1),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final maxWidth = MediaQuery.of(context).size.width;
     return ColoredBox(
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
           appBar: AppBar(
+            bottom: showBottomAppbar
+                ? PreferredSize(
+                    preferredSize: const Size.fromHeight(50),
+                    child: MenuRowWidget(
+                      onAboutPressed: () => _postInit(350),
+                      onProjectsPressed: () =>
+                          _postInit(_scrollController.position.maxScrollExtent),
+                      onContactPressed: () => _postInit(450),
+                    ),
+                  )
+                : null,
             toolbarHeight: 70,
             leadingWidth: 58,
             leading: Padding(
@@ -24,17 +55,28 @@ class HomeScreen extends StatelessWidget {
               child: SvgPicture.asset('assets/icons/logo.svg'),
             ),
             backgroundColor: const Color(0xFFF4F4F4),
-            title: const Text('dev'),
+            title: const Text('NursultanDev'),
             titleSpacing: 10,
             centerTitle: false,
             actions: [
-              IconButton(
-                onPressed: () {},
-                icon: SvgPicture.asset('assets/icons/menu.svg'),
-              ),
+              if (maxWidth < 550)
+                IconButton(
+                  onPressed: () => setState(() {
+                    showBottomAppbar = !showBottomAppbar;
+                  }),
+                  icon: SvgPicture.asset('assets/icons/menu.svg'),
+                )
+              else
+                MenuRowWidget(
+                  onAboutPressed: () => _postInit(350),
+                  onProjectsPressed: () =>
+                      _postInit(_scrollController.position.maxScrollExtent),
+                  onContactPressed: () => _postInit(450),
+                ),
             ],
           ),
           body: SingleChildScrollView(
+            controller: _scrollController,
             child: Center(
               child: Column(
                 children: [
@@ -53,20 +95,44 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 50),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TitleTextWidget(
-                          firstText: 'About',
-                          secondText: 'me',
-                        ),
-                        Text(
-                          'I am Talgat, Mobile App Developer from Kyrgyzstan. Have experience Flutter for android, ios. Also in UI/UX design.',
-                          style: TextStyle(fontSize: 20),
-                        )
-                      ],
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: getHorizontalPaddingValue(context),
+                      ),
+                      child: const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TitleTextWidget(
+                            firstText: 'About ',
+                            secondText: 'Me',
+                          ),
+                          SizedBox(height: 10),
+                          SizedBox(
+                            width: 500,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'I am Nursultan, Mobile App Developer from Kyrgyzstan.',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(height: 2),
+                                Text(
+                                  'I have experience developing alone and in a company. Have experience with native Flutter for android, ios.',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(height: 50),
@@ -127,21 +193,25 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 50),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Column(
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: getHorizontalPaddingValue(context)),
+                    child: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TitleTextWidget(firstText: 'Experience'),
-                        Text(
-                          'I am Talgat, Mobile App Developer from Kyrgyzstan. Have experience Flutter for android, ios. Also in UI/UX design.',
-                          style: TextStyle(fontSize: 20),
+                        SizedBox(
+                          width: 500,
+                          child: Text(
+                            'As a dedicated Flutter Developer with 1.5 years of professional experience, I have played a pivotal role in delivering high-quality mobile applications for diverse clients at Outsourcing Company XYZ. My work has been instrumental in meeting client expectations and ensuring the successful execution of various projects.',
+                            style: TextStyle(fontSize: 20),
+                          ),
                         ),
                         SizedBox(height: 40),
                         WorkExperienceWidget(
                           companyName: 'Oracle Digital',
                           position: 'Flutter developer',
-                          date: '2022 August - 2023 September',
+                          date: '2022 August - 2023 November',
                         ),
                         SizedBox(height: 50),
                         Divider(
@@ -150,15 +220,17 @@ class HomeScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 50),
                         TitleTextWidget(
-                          firstText: 'My',
+                          firstText: 'My ',
                           secondText: 'Skills',
                         ),
                         SizedBox(height: 40),
                         HardSkillsWidget(
+                          value: 2.5,
                           text: 'Flutter: Dart',
                         ),
                         SizedBox(height: 40),
                         HardSkillsWidget(
+                          value: 1,
                           text: 'Android: Kotlin',
                         ),
                         SizedBox(height: 70),

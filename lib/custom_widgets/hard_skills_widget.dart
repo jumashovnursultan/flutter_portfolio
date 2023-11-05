@@ -4,9 +4,11 @@ class HardSkillsWidget extends StatelessWidget {
   const HardSkillsWidget({
     super.key,
     required this.text,
+    required this.value,
   });
 
   final String text;
+  final double value;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,10 @@ class HardSkillsWidget extends StatelessWidget {
         Container(
           height: 40,
           width: 145,
-          color: const Color(0xFFF4F4F4),
+          decoration: BoxDecoration(
+            color: const Color(0xFFF4F4F4),
+            borderRadius: BorderRadius.circular(10),
+          ),
           alignment: Alignment.center,
           child: Text(
             text,
@@ -26,11 +31,12 @@ class HardSkillsWidget extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 15),
-        const LinearProgressIndicator(
-          minHeight: 15,
-          value: ((1 * 1) / 3),
-          color: Color(0xFF007AFF),
-          backgroundColor: Color(0xFFB2D7FF),
+        LinearProgressIndicator(
+          borderRadius: BorderRadius.circular(20),
+          minHeight: 10,
+          value: ((1 * value) / 3),
+          color: const Color(0xFF007AFF),
+          backgroundColor: const Color(0xFFB2D7FF),
         ),
       ],
     );
