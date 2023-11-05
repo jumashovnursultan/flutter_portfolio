@@ -1,8 +1,12 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:my_portfolio_app/const/custom_scroll_behavior.dart';
 import 'package:my_portfolio_app/data/list_of_application_model.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../snap_scroll_physics.dart';
 
 final listOfApplication = [
   ApplicationModel(
@@ -94,18 +98,22 @@ class LastProjectsCarouselSliderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     return ScrollConfiguration(
       behavior: CustomScrollBehavior(),
       child: SizedBox(
         height: 360,
-        child: PageView.builder(
-          controller: PageController(
+        width: double.infinity,
+        child: CarouselSlider.builder(
+          options: CarouselOptions(
+            aspectRatio: 16 / 20,
             viewportFraction: getAdaptiveViewPortFraction(context),
-            initialPage: width >= 1290 ? 1 : 0,
+            autoPlay: true,
+            enableInfiniteScroll: true,
+            autoPlayInterval: const Duration(seconds: 10),
+            onPageChanged: (index, reason) {},
           ),
           itemCount: listOfApplication.length,
-          itemBuilder: (context, index) {
+          itemBuilder: (context, index, realIndex) {
             final item = listOfApplication[index];
             return Container(
               margin: const EdgeInsets.only(right: 30, top: 10, bottom: 20),
@@ -275,3 +283,215 @@ class LastProjectsCarouselSliderWidget extends StatelessWidget {
     }
   }
 }
+
+
+
+        // child: ListView.builder(
+        //   physics: const SnapScrollPhysics(
+        //     snapSize: 200,
+        //   ),
+        //   scrollDirection: Axis.horizontal,
+        //   dragStartBehavior: DragStartBehavior.start,
+        //   itemCount: listOfApplication.length,
+        //   itemBuilder: (context, index) {
+        //     final item = listOfApplication[index];
+
+        //     return Container(
+        //       width: 200,
+        //       margin: const EdgeInsets.only(right: 30, top: 10, bottom: 20),
+        //       decoration: BoxDecoration(
+        //         borderRadius: BorderRadius.circular(20),
+        //         color: Colors.white,
+        //         boxShadow: [
+        //           BoxShadow(
+        //             color: Colors.grey.withOpacity(0.2),
+        //             spreadRadius: 5,
+        //             blurRadius: 7,
+        //             offset: const Offset(0, 3),
+        //           ),
+        //         ],
+        //       ),
+        //       child: Column(
+        //         children: [
+        //           const SizedBox(height: 30),
+        //           ClipRRect(
+        //             borderRadius: BorderRadius.circular(50),
+        //             child: Image.asset(
+        //               item.logo,
+        //               height: 100,
+        //               width: 100,
+        //             ),
+        //           ),
+        //           const SizedBox(height: 40),
+        //           Text(
+        //             item.name,
+        //             style: const TextStyle(
+        //               fontSize: 20,
+        //               color: Colors.black,
+        //               fontWeight: FontWeight.w500,
+        //             ),
+        //             textAlign: TextAlign.center,
+        //           ),
+        //           const SizedBox(height: 10),
+        //           Text(
+        //             item.language,
+        //             style: const TextStyle(
+        //               fontSize: 16,
+        //               color: Colors.black,
+        //               fontWeight: FontWeight.w300,
+        //             ),
+        //           ),
+        //           const SizedBox(height: 25),
+        //           Row(
+        //             mainAxisAlignment: MainAxisAlignment.center,
+        //             children: [
+        //               if (item.appStoreLink != null)
+        //                 InkWell(
+        //                   onTap: () => launchUrl(
+        //                     Uri.parse(item.appStoreLink!),
+        //                     mode: LaunchMode.externalApplication,
+        //                   ),
+        //                   child: SvgPicture.asset(
+        //                     'assets/icons/app-store_logo.svg',
+        //                     height: 23,
+        //                     width: 23,
+        //                   ),
+        //                 ),
+        //               if (item.playMarketLink != null) ...[
+        //                 const SizedBox(width: 10),
+        //                 InkWell(
+        //                   onTap: () => launchUrl(
+        //                     Uri.parse(item.playMarketLink!),
+        //                     mode: LaunchMode.externalApplication,
+        //                   ),
+        //                   child: SvgPicture.asset(
+        //                     'assets/icons/play-store_logo.svg',
+        //                     height: 20,
+        //                     width: 20,
+        //                   ),
+        //                 ),
+        //               ],
+        //               if (item.webLink != null) ...[
+        //                 const SizedBox(width: 10),
+        //                 InkWell(
+        //                   onTap: () => launchUrl(
+        //                     Uri.parse(item.webLink!),
+        //                     mode: LaunchMode.externalApplication,
+        //                   ),
+        //                   child: SvgPicture.asset(
+        //                     'assets/icons/chrome_logo.svg',
+        //                     height: 20,
+        //                     width: 20,
+        //                   ),
+        //                 ),
+        //               ],
+        //             ],
+        //           ),
+        //         ],
+        //       ),
+        //     );
+        //   },
+        // ),
+        // child: PageView.builder(
+        //   controller: PageController(
+        //     viewportFraction: getAdaptiveViewPortFraction(context),
+        //     initialPage: width >= 1290 ? 1 : 0,
+        //   ),
+        //   itemCount: listOfApplication.length,
+        // itemBuilder: (context, index) {
+        // final item = listOfApplication[index];
+        // return Container(
+        //   margin: const EdgeInsets.only(right: 30, top: 10, bottom: 20),
+        //   decoration: BoxDecoration(
+        //     borderRadius: BorderRadius.circular(20),
+        //     color: Colors.white,
+        //     boxShadow: [
+        //       BoxShadow(
+        //         color: Colors.grey.withOpacity(0.2),
+        //         spreadRadius: 5,
+        //         blurRadius: 7,
+        //         offset: const Offset(0, 3),
+        //       ),
+        //     ],
+        //   ),
+        //   child: Column(
+        //     children: [
+        //       const SizedBox(height: 30),
+        //       ClipRRect(
+        //         borderRadius: BorderRadius.circular(50),
+        //         child: Image.asset(
+        //           item.logo,
+        //           height: 100,
+        //           width: 100,
+        //         ),
+        //       ),
+        //       const SizedBox(height: 40),
+        //       Text(
+        //         item.name,
+        //         style: const TextStyle(
+        //           fontSize: 20,
+        //           color: Colors.black,
+        //           fontWeight: FontWeight.w500,
+        //         ),
+        //         textAlign: TextAlign.center,
+        //       ),
+        //       const SizedBox(height: 10),
+        //       Text(
+        //         item.language,
+        //         style: const TextStyle(
+        //           fontSize: 16,
+        //           color: Colors.black,
+        //           fontWeight: FontWeight.w300,
+        //         ),
+        //       ),
+        //       const SizedBox(height: 25),
+        //       Row(
+        //         mainAxisAlignment: MainAxisAlignment.center,
+        //         children: [
+        //           if (item.appStoreLink != null)
+        //             InkWell(
+        //               onTap: () => launchUrl(
+        //                 Uri.parse(item.appStoreLink!),
+        //                 mode: LaunchMode.externalApplication,
+        //               ),
+        //               child: SvgPicture.asset(
+        //                 'assets/icons/app-store_logo.svg',
+        //                 height: 23,
+        //                 width: 23,
+        //               ),
+        //             ),
+        //           if (item.playMarketLink != null) ...[
+        //             const SizedBox(width: 10),
+        //             InkWell(
+        //               onTap: () => launchUrl(
+        //                 Uri.parse(item.playMarketLink!),
+        //                 mode: LaunchMode.externalApplication,
+        //               ),
+        //               child: SvgPicture.asset(
+        //                 'assets/icons/play-store_logo.svg',
+        //                 height: 20,
+        //                 width: 20,
+        //               ),
+        //             ),
+        //           ],
+        //           if (item.webLink != null) ...[
+        //             const SizedBox(width: 10),
+        //             InkWell(
+        //               onTap: () => launchUrl(
+        //                 Uri.parse(item.webLink!),
+        //                 mode: LaunchMode.externalApplication,
+        //               ),
+        //               child: SvgPicture.asset(
+        //                 'assets/icons/chrome_logo.svg',
+        //                 height: 20,
+        //                 width: 20,
+        //               ),
+        //             ),
+        //           ],
+        //         ],
+        //       ),
+        //     ],
+        //   ),
+        // );
+        // },
+        // ),
