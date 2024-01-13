@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:my_portfolio_app/custom_widgets/menu_row_widget.dart';
@@ -6,8 +7,10 @@ import 'package:my_portfolio_app/custom_widgets/work_experience_widget.dart';
 import 'package:my_portfolio_app/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'const/localization_checker.dart';
 import 'custom_widgets/hard_skills_widget.dart';
 import 'custom_widgets/last_projects_carousel_slider_widget.dart';
+import 'custom_widgets/select_language_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -73,6 +76,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       _postInit(_scrollController.position.maxScrollExtent),
                   onContactPressed: () => _postInit(450),
                 ),
+              const SizedBox(width: 20),
+              const Align(
+                alignment: Alignment.center,
+                child: SelectLanguageWidget(),
+              ),
             ],
           ),
           body: SingleChildScrollView(
@@ -81,8 +89,8 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   const SizedBox(height: 40),
-                  const TitleTextWidget(
-                    firstText: 'Welcome',
+                  TitleTextWidget(
+                    firstText: 'welcome'.tr(),
                     secondText: '!',
                   ),
                   const SizedBox(height: 20),
@@ -101,30 +109,30 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: EdgeInsets.symmetric(
                         horizontal: getHorizontalPaddingValue(context),
                       ),
-                      child: const Column(
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           TitleTextWidget(
-                            firstText: 'About ',
-                            secondText: 'Me',
+                            firstText: 'about'.tr(),
+                            secondText: 'me'.tr(),
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           SizedBox(
                             width: 500,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'I am Nursultan, Mobile App Developer from Kyrgyzstan.',
-                                  style: TextStyle(
+                                  'hello'.tr(),
+                                  style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                SizedBox(height: 2),
+                                const SizedBox(height: 2),
                                 Text(
-                                  'I have experience developing alone and in a company. Have experience with native Flutter for android, ios.',
-                                  style: TextStyle(
+                                  'about_me'.tr(),
+                                  style: const TextStyle(
                                     fontSize: 18,
                                   ),
                                 ),
@@ -185,9 +193,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   const SizedBox(height: 10),
-                  const Text(
-                    'Social contacts',
-                    style: TextStyle(
+                  Text(
+                    'social_contacts'.tr(),
+                    style: const TextStyle(
                       fontSize: 20,
                       color: Color(0xFFE3E3E3),
                     ),
@@ -196,46 +204,54 @@ class _HomeScreenState extends State<HomeScreen> {
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: getHorizontalPaddingValue(context)),
-                    child: const Column(
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        TitleTextWidget(firstText: 'Experience'),
+                        TitleTextWidget(firstText: 'experience'.tr()),
                         SizedBox(
                           width: 500,
                           child: Text(
-                            'As a dedicated Flutter Developer with 1.5 years of professional experience, I have played a pivotal role in delivering high-quality mobile applications for diverse clients at Outsourcing Company XYZ. My work has been instrumental in meeting client expectations and ensuring the successful execution of various projects.',
-                            style: TextStyle(fontSize: 20),
+                            'experience_text'.tr(),
+                            style: const TextStyle(fontSize: 20),
                           ),
                         ),
-                        SizedBox(height: 40),
+                        const SizedBox(height: 40),
                         WorkExperienceWidget(
                           companyName: 'Oracle Digital',
                           position: 'Flutter developer',
-                          date: '2022 August - 2023 November',
+                          date:
+                              '2022 ${'august'.tr()} - ${DateFormat('y').format(DateTime.now())} ${context.locale.countryCode == 'US' ? DateFormat('MMMM').format(DateTime.now()) : DateFormat('MMMM', 'ru_RU').format(DateTime.now())[0].toUpperCase() + DateFormat('MMMM', 'ru_RU').format(DateTime.now()).substring(1)}',
                         ),
-                        SizedBox(height: 50),
-                        Divider(
+                        const SizedBox(height: 40),
+                        const WorkExperienceWidget(
+                          companyName: 'Freelancing',
+                          position: 'Flutter developer',
+                          date: '2021 - 2022',
+                        ),
+                        const SizedBox(height: 50),
+                        const Divider(
                           color: Color(0xFFE3E3E3),
                           thickness: 1,
                         ),
-                        SizedBox(height: 50),
+                        const SizedBox(height: 50),
                         TitleTextWidget(
-                          firstText: 'My ',
-                          secondText: 'Skills',
+                          firstText: 'my'.tr(),
+                          secondText: 'skills'.tr(),
                         ),
-                        SizedBox(height: 40),
-                        HardSkillsWidget(
+                        const SizedBox(height: 40),
+                        const HardSkillsWidget(
                           value: 2.5,
                           text: 'Flutter: Dart',
                         ),
-                        SizedBox(height: 40),
-                        HardSkillsWidget(
+                        const SizedBox(height: 40),
+                        const HardSkillsWidget(
                           value: 1,
                           text: 'Android: Kotlin',
                         ),
-                        SizedBox(height: 70),
+                        const SizedBox(height: 70),
                         TitleTextWidget(
-                          firstText: 'Last projects',
+                          firstText: 'last'.tr(),
+                          secondText: 'projects'.tr(),
                         ),
                       ],
                     ),

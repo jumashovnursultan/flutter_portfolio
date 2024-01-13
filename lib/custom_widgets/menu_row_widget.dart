@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -19,17 +20,15 @@ class MenuRowWidget extends StatelessWidget {
       children: [
         TextButton(
           onPressed: onAboutPressed,
-          child: const Text(
-            'About',
-            style: TextStyle(),
+          child: Text(
+            context.locale.countryCode == 'US' ? 'About' : 'О себе',
           ),
         ),
         const SizedBox(width: 20),
         TextButton(
           onPressed: onProjectsPressed,
-          child: const Text(
-            'Projects',
-            style: TextStyle(),
+          child: Text(
+            'projects'.tr(),
           ),
         ),
         const SizedBox(width: 20),
@@ -46,9 +45,8 @@ class MenuRowWidget extends StatelessWidget {
         const SizedBox(width: 20),
         TextButton(
           onPressed: onContactPressed,
-          child: const Text(
-            'Contact',
-            style: TextStyle(),
+          child: Text(
+            'contacts'.tr(),
           ),
         ),
       ],
