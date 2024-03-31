@@ -141,7 +141,7 @@ class LastProjectsCarouselSliderWidget extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 40),
-                  Text(
+                  SelectableText(
                     item.name,
                     style: const TextStyle(
                       fontSize: 20,
@@ -151,7 +151,7 @@ class LastProjectsCarouselSliderWidget extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 10),
-                  Text(
+                  SelectableText(
                     item.language,
                     style: const TextStyle(
                       fontSize: 16,
@@ -323,7 +323,7 @@ class LastProjectsCarouselSliderWidget extends StatelessWidget {
         //             ),
         //           ),
         //           const SizedBox(height: 40),
-        //           Text(
+        //           SelectableText(
         //             item.name,
         //             style: const TextStyle(
         //               fontSize: 20,
@@ -333,7 +333,7 @@ class LastProjectsCarouselSliderWidget extends StatelessWidget {
         //             textAlign: TextAlign.center,
         //           ),
         //           const SizedBox(height: 10),
-        //           Text(
+        //           SelectableText(
         //             item.language,
         //             style: const TextStyle(
         //               fontSize: 16,
@@ -426,7 +426,7 @@ class LastProjectsCarouselSliderWidget extends StatelessWidget {
         //         ),
         //       ),
         //       const SizedBox(height: 40),
-        //       Text(
+        //       SelectableText(
         //         item.name,
         //         style: const TextStyle(
         //           fontSize: 20,
@@ -436,7 +436,7 @@ class LastProjectsCarouselSliderWidget extends StatelessWidget {
         //         textAlign: TextAlign.center,
         //       ),
         //       const SizedBox(height: 10),
-        //       Text(
+        //       SelectableText(
         //         item.language,
         //         style: const TextStyle(
         //           fontSize: 16,

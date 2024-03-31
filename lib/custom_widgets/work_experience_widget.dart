@@ -19,16 +19,16 @@ class WorkExperienceWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        SelectableText(
           companyName,
           style: AppStyle.styleWBlackW600S40,
         ),
         const SizedBox(height: 15),
-        Text(
+        SelectableText(
           position,
           style: const TextStyle(fontSize: 20),
         ),
-        Text(
+        SelectableText(
           date,
           style: const TextStyle(
             fontSize: 20,

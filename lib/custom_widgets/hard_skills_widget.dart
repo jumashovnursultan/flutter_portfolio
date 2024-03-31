@@ -23,7 +23,7 @@ class HardSkillsWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           alignment: Alignment.center,
-          child: Text(
+          child: SelectableText(
             text,
             style: const TextStyle(
               fontSize: 20,

@@ -6,8 +6,6 @@ import 'package:my_portfolio_app/custom_widgets/title_text_widget.dart';
 import 'package:my_portfolio_app/custom_widgets/work_experience_widget.dart';
 import 'package:my_portfolio_app/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'const/localization_checker.dart';
 import 'custom_widgets/hard_skills_widget.dart';
 import 'custom_widgets/last_projects_carousel_slider_widget.dart';
 import 'custom_widgets/select_language_widget.dart';
@@ -53,12 +51,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 : null,
             toolbarHeight: 70,
             leadingWidth: 58,
-            leading: Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: SvgPicture.asset('assets/icons/logo.svg'),
+            leading: InkWell(
+              highlightColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              onTap: () {
+                _postInit(0);
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: SvgPicture.asset('assets/icons/logo.svg'),
+              ),
             ),
             backgroundColor: const Color(0xFFF4F4F4),
-            title: const Text('NursultanDev'),
+            title: const SelectableText('NursultanDev'),
             titleSpacing: 10,
             centerTitle: false,
             actions: [
@@ -122,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
+                                SelectableText(
                                   'hello'.tr(),
                                   style: const TextStyle(
                                     fontSize: 20,
@@ -130,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                                 const SizedBox(height: 2),
-                                Text(
+                                SelectableText(
                                   'about_me'.tr(),
                                   style: const TextStyle(
                                     fontSize: 18,
@@ -193,7 +200,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   const SizedBox(height: 10),
-                  Text(
+                  SelectableText(
                     'social_contacts'.tr(),
                     style: const TextStyle(
                       fontSize: 20,
@@ -210,7 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         TitleTextWidget(firstText: 'experience'.tr()),
                         SizedBox(
                           width: 500,
-                          child: Text(
+                          child: SelectableText(
                             'experience_text'.tr(),
                             style: const TextStyle(fontSize: 20),
                           ),
@@ -220,7 +227,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           companyName: 'Oracle Digital',
                           position: 'Flutter developer',
                           date:
-                              '2022 ${'august'.tr()} - ${DateFormat('y').format(DateTime.now())} ${context.locale.countryCode == 'US' ? DateFormat('MMMM').format(DateTime.now()) : DateFormat('MMMM', 'ru_RU').format(DateTime.now())[0].toUpperCase() + DateFormat('MMMM', 'ru_RU').format(DateTime.now()).substring(1)}',
+                              '2022 ${'february'.tr()} - ${DateFormat('y').format(DateTime.now())} ${context.locale.countryCode == 'US' ? DateFormat('MMMM').format(DateTime.now()) : DateFormat('MMMM', 'ru_RU').format(DateTime.now())[0].toUpperCase() + DateFormat('MMMM', 'ru_RU').format(DateTime.now()).substring(1)}',
                         ),
                         const SizedBox(height: 40),
                         const WorkExperienceWidget(

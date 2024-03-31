@@ -14,8 +14,8 @@ class TitleTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      text: TextSpan(
+    return SelectableText.rich(
+      TextSpan(
         text: firstText,
         style: secondText != null
             ? AppStyle.styleWBlackW600S40

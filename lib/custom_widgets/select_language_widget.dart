@@ -2,8 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../const/localization_checker.dart';
-
 class SelectLanguageWidget extends StatelessWidget {
   const SelectLanguageWidget({super.key});
 
@@ -12,52 +10,56 @@ class SelectLanguageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        SvgPicture.asset('assets/icons/language.svg'),
-        const SizedBox(width: 8),
-        Builder(
-          builder: (context) {
-            return GestureDetector(
+    return InkWell(
+      highlightColor: Colors.transparent,
+      focusColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      splashColor: Colors.transparent,
+      onTap: () {
+        showMenu(
+          constraints: const BoxConstraints(
+            minWidth: 132,
+            maxWidth: 132,
+          ),
+          shadowColor: const Color(0x26474747),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(6),
+          ),
+          elevation: 5,
+          context: context,
+          position: buttonMenuPosition(context),
+          items: [
+            buildPopupMenuItem(
+              context,
+              value: ru,
+              text: 'Русский',
+              isSelected: context.locale.countryCode == ru,
               onTap: () {
-                showMenu(
-                  constraints: const BoxConstraints(
-                    minWidth: 132,
-                    maxWidth: 132,
-                  ),
-                  shadowColor: const Color(0x26474747),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  elevation: 5,
-                  context: context,
-                  position: buttonMenuPosition(context),
-                  items: [
-                    buildPopupMenuItem(
-                      context,
-                      value: ru,
-                      text: 'Русский',
-                      isSelected: context.locale.countryCode == ru,
-                      onTap: () {
-                        EasyLocalization.of(context)!
-                            .setLocale(const Locale('ru', 'RU'));
-                      },
-                    ),
-                    buildPopupMenuItem(
-                      context,
-                      value: en,
-                      text: 'English',
-                      isSelected: context.locale.countryCode == en,
-                      onTap: () {
-                        EasyLocalization.of(context)!
-                            .setLocale(const Locale('en', 'US'));
-                      },
-                    ),
-                  ],
-                );
+                EasyLocalization.of(context)!
+                    .setLocale(const Locale('ru', 'RU'));
               },
-              child: SizedBox(
+            ),
+            buildPopupMenuItem(
+              context,
+              value: en,
+              text: 'English',
+              isSelected: context.locale.countryCode == en,
+              onTap: () {
+                EasyLocalization.of(context)!
+                    .setLocale(const Locale('en', 'US'));
+              },
+            ),
+          ],
+        );
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          SvgPicture.asset('assets/icons/language.svg'),
+          const SizedBox(width: 8),
+          Builder(
+            builder: (context) {
+              return SizedBox(
                 height: 40,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -69,12 +71,12 @@ class SelectLanguageWidget extends StatelessWidget {
                     SvgPicture.asset('assets/icons/drop_down_icon.svg'),
                   ],
                 ),
-              ),
-            );
-          },
-        ),
-        const SizedBox(width: 20)
-      ],
+              );
+            },
+          ),
+          const SizedBox(width: 20)
+        ],
+      ),
     );
   }
 
