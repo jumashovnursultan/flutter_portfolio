@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:my_portfolio_app/home_scree.dart';
 // import 'dart:ui' as ui;
 
@@ -12,7 +15,9 @@ void main() async {
       supportedLocales: const [Locale('en', 'US'), Locale('ru', 'RU')],
       path: 'assets/translations',
       fallbackLocale: const Locale('en', 'US'),
-      startLocale: WidgetsBinding.instance.window.locale,
+      startLocale: Platform.localeName == 'ru'
+          ? const Locale('ru', 'RU')
+          : const Locale('en', 'US'),
       assetLoader: const RootBundleAssetLoader(),
       child: const MyApp(),
     ),

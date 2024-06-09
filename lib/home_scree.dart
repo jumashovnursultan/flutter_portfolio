@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,6 +11,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'custom_widgets/hard_skills_widget.dart';
 import 'custom_widgets/last_projects_carousel_slider_widget.dart';
 import 'custom_widgets/select_language_widget.dart';
+import 'dart:ui' as ui;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -95,6 +98,8 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Center(
               child: Column(
                 children: [
+                  Text(Platform.localeName),
+                  Text(WidgetsBinding.instance.window.locale.toString()),
                   const SizedBox(height: 40),
                   TitleTextWidget(
                     firstText: 'welcome'.tr(),
