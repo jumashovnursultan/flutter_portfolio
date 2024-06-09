@@ -91,6 +91,12 @@ final listOfApplication = [
         'https://play.google.com/store/apps/details?id=app.odigital.opop',
     appStoreLink: 'https://apps.apple.com/kg/app/opop/id6444595393',
   ),
+  ApplicationModel(
+    logo: 'assets/icons/favicon.png',
+    name: 'portfolio',
+    language: 'Flutter',
+    webLink: 'https://jumashovnursultan.github.io/',
+  ),
 ];
 
 class LastProjectsCarouselSliderWidget extends StatelessWidget {
