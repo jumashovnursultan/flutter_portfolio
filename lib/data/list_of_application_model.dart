@@ -5,6 +5,7 @@ class ApplicationModel {
   final String? playMarketLink;
   final String? appStoreLink;
   final String? webLink;
+  final String? githubLink;
 
   ApplicationModel({
     required this.logo,
@@ -13,5 +14,6 @@ class ApplicationModel {
     this.playMarketLink,
     this.appStoreLink,
     this.webLink,
+    this.githubLink,
   });
 }

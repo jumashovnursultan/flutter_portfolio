@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:my_portfolio_app/const/custom_scroll_behavior.dart';
@@ -9,6 +8,15 @@ import 'package:url_launcher/url_launcher.dart';
 import '../snap_scroll_physics.dart';
 
 final listOfApplication = [
+  ApplicationModel(
+    logo: 'assets/icons/top_logo.png',
+    name: 'TOP',
+    language: 'Flutter',
+    playMarketLink:
+        'https://play.google.com/store/apps/details?id=dev.odigital.topkg&pcampaignid=web_share',
+    // appStoreLink:
+    //     'https://apps.apple.com/kg/app/%D0%B0%D0%BA-%D1%8D%D0%BC%D0%B3%D0%B5%D0%BA/id1667796373',
+  ),
   ApplicationModel(
     logo: 'assets/icons/ak_emgek_logo.png',
     name: 'Ак-Эмгек',
@@ -96,6 +104,7 @@ final listOfApplication = [
     name: 'portfolio',
     language: 'Flutter',
     webLink: 'https://jumashovnursultan.github.io/',
+    githubLink: 'https://github.com/jumashovnursultan/flutter_portfolio',
   ),
 ];
 
@@ -204,6 +213,20 @@ class LastProjectsCarouselSliderWidget extends StatelessWidget {
                           ),
                           child: SvgPicture.asset(
                             'assets/icons/chrome_logo.svg',
+                            height: 20,
+                            width: 20,
+                          ),
+                        ),
+                      ],
+                      if (item.githubLink != null) ...[
+                        const SizedBox(width: 10),
+                        InkWell(
+                          onTap: () => launchUrl(
+                            Uri.parse(item.githubLink!),
+                            mode: LaunchMode.externalApplication,
+                          ),
+                          child: SvgPicture.asset(
+                            'assets/icons/github_logo.svg',
                             height: 20,
                             width: 20,
                           ),

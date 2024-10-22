@@ -9,7 +9,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'custom_widgets/hard_skills_widget.dart';
 import 'custom_widgets/last_projects_carousel_slider_widget.dart';
 import 'custom_widgets/select_language_widget.dart';
-// import 'dart:ui' as ui;
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -58,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
               hoverColor: Colors.transparent,
               splashColor: Colors.transparent,
               onTap: () {
-                _postInit(0);
+                html.window.location.reload();
               },
               child: Padding(
                 padding: const EdgeInsets.only(left: 20),
@@ -231,12 +232,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           date:
                               '2022 ${'february'.tr()} - ${DateFormat('y').format(DateTime.now())} ${context.locale.countryCode == 'US' ? DateFormat('MMMM').format(DateTime.now()) : DateFormat('MMMM', 'ru_RU').format(DateTime.now())[0].toUpperCase() + DateFormat('MMMM', 'ru_RU').format(DateTime.now()).substring(1)}',
                         ),
-                        const SizedBox(height: 40),
-                        const WorkExperienceWidget(
-                          companyName: 'Freelancing',
-                          position: 'Flutter developer',
-                          date: '2021 - 2022',
-                        ),
+                        // const SizedBox(height: 40),
+                        // const WorkExperienceWidget(
+                        //   companyName: 'Freelancing',
+                        //   position: 'Flutter developer',
+                        //   date: '2021 - 2022',
+                        // ),
                         const SizedBox(height: 50),
                         const Divider(
                           color: Color(0xFFE3E3E3),
