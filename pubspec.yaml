@@ -19,6 +19,7 @@ dependencies:
   url_launcher: ^6.2.1
   carousel_slider: ^5.0.0
   easy_localization: ^3.0.3
+  firebase_analytics: ^11.3.3
 
 dependency_overrides:
   intl: ^0.18.1
