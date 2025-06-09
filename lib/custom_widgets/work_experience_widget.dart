@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../const/app_styles.dart';
+import 'package:my_portfolio_app/const/app_styles.dart';
 
 class WorkExperienceWidget extends StatelessWidget {
   const WorkExperienceWidget({
@@ -8,11 +7,13 @@ class WorkExperienceWidget extends StatelessWidget {
     required this.companyName,
     required this.position,
     required this.date,
+    this.description,
   });
 
   final String companyName;
   final String position;
   final String date;
+  final String? description;
 
   @override
   Widget build(BuildContext context) {
@@ -21,20 +22,24 @@ class WorkExperienceWidget extends StatelessWidget {
       children: [
         SelectableText(
           companyName,
-          style: AppStyle.styleWBlackW600S40,
+          style: AppStyle.styleWBlackW600S28,
         ),
-        const SizedBox(height: 15),
+        // const SizedBox(height: 15),
         SelectableText(
           position,
           style: const TextStyle(fontSize: 20),
         ),
         SelectableText(
           date,
-          style: const TextStyle(
-            fontSize: 20,
-            // color: Color(0xFF34C759),
-          ),
+          style: const TextStyle(fontSize: 20),
         ),
+        if (description != null) ...[
+          const SizedBox(height: 12),
+          SelectableText(
+            description!,
+            style: const TextStyle(fontSize: 16, color: Colors.black87),
+          ),
+        ]
       ],
     );
   }

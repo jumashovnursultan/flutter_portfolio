@@ -39,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.white,
           appBar: AppBar(
             bottom: showBottomAppbar
                 ? PreferredSize(
@@ -217,57 +218,72 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        TitleTextWidget(firstText: 'experience'.tr()),
-                        SizedBox(
-                          width: 500,
-                          child: SelectableText(
-                            'experience_text'.tr(),
-                            style: const TextStyle(fontSize: 20),
-                          ),
+                        TitleTextWidget(
+                          firstText: '${'professional'.tr()} ',
+                          secondText: 'experience'.tr(),
                         ),
-                        const SizedBox(height: 40),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         WorkExperienceWidget(
-                          companyName: 'Oracle Digital',
-                          position: 'Flutter developer',
-                          date:
-                              '2022 ${'february'.tr()} - ${DateFormat('y').format(DateTime.now())} ${context.locale.countryCode == 'US' ? DateFormat('MMMM').format(DateTime.now()) : DateFormat('MMMM', 'ru_RU').format(DateTime.now())[0].toUpperCase() + DateFormat('MMMM', 'ru_RU').format(DateTime.now()).substring(1)}',
+                          companyName: 'Odigital',
+                          position: 'flutterDeveloper'.tr(),
+                          date: 'experiencePeriodOdigital'.tr(),
+                          description: 'workAtOdigital'.tr(),
                         ),
-                        // const SizedBox(height: 40),
-                        // const WorkExperienceWidget(
-                        //   companyName: 'Freelancing',
-                        //   position: 'Flutter developer',
-                        //   date: '2021 - 2022',
-                        // ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        WorkExperienceWidget(
+                          companyName: 'Freelancing',
+                          position: 'flutterDeveloper'.tr(),
+                          date: 'june2023'.tr(),
+                          description: 'workAtFreelancing'.tr(),
+                        ),
+
                         const SizedBox(height: 50),
                         const Divider(
                           color: Color(0xFFE3E3E3),
                           thickness: 1,
                         ),
+                        // const SizedBox(height: 50),
+
                         const SizedBox(height: 50),
                         TitleTextWidget(
-                          firstText: 'my'.tr(),
-                          secondText: 'skills'.tr(),
-                        ),
-                        const SizedBox(height: 40),
-                        const HardSkillsWidget(
-                          value: 2.5,
-                          text: 'Flutter: Dart',
-                        ),
-                        const SizedBox(height: 40),
-                        const HardSkillsWidget(
-                          value: 1,
-                          text: 'Android: Kotlin',
-                        ),
-                        const SizedBox(height: 70),
-                        TitleTextWidget(
-                          firstText: 'last'.tr(),
-                          secondText: 'projects'.tr(),
+                          firstText: context.locale.countryCode == 'US'
+                              ? '${'last'.tr()}${'projects'.tr()} '
+                              : 'projects'.tr(),
+                          secondText: 'iWorkedOn'.tr(),
                         ),
                       ],
                     ),
                   ),
                   const SizedBox(height: 30),
                   const LastProjectsCarouselSliderWidget(),
+                  const SizedBox(height: 50),
+                  Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: getHorizontalPaddingValue(context)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TitleTextWidget(
+                            firstText: 'my'.tr(),
+                            secondText: 'skills'.tr(),
+                          ),
+                          const SizedBox(height: 40),
+                          const HardSkillsWidget(
+                            value: 2.5,
+                            text: 'Flutter: Dart',
+                          ),
+                          const SizedBox(height: 40),
+                          const HardSkillsWidget(
+                            value: 1,
+                            text: 'Android: Kotlin',
+                          ),
+                        ],
+                      )),
+
                   const SizedBox(height: 100),
                 ],
               ),

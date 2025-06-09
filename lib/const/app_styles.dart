@@ -11,4 +11,9 @@ class AppStyle {
     fontWeight: FontWeight.w600,
     color: Color(0xFF202020),
   );
+  static const styleWBlackW600S28 = TextStyle(
+    fontSize: 28,
+    fontWeight: FontWeight.w600,
+    color: Color(0xFF202020),
+  );
 }
