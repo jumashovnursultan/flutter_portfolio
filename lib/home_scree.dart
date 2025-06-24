@@ -259,30 +259,36 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   const SizedBox(height: 30),
-                  const LastProjectsCarouselSliderWidget(),
-                  const SizedBox(height: 50),
-                  Padding(
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
                       padding: EdgeInsets.symmetric(
-                          horizontal: getHorizontalPaddingValue(context)),
+                        horizontal: getHorizontalPaddingValue(context),
+                      ),
+                      child: const LastProjectsGridWidget(),
+                    ),
+                  ),
+                  const SizedBox(height: 50),
+                  // Тут писать навыки
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: getHorizontalPaddingValue(context),
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           TitleTextWidget(
-                            firstText: 'my'.tr(),
-                            secondText: 'skills'.tr(),
+                            firstText: 'hard'.tr(),
+                            secondText: ' ${'skills'.tr().toLowerCase()}',
                           ),
-                          const SizedBox(height: 40),
-                          const HardSkillsWidget(
-                            value: 2.5,
-                            text: 'Flutter: Dart',
-                          ),
-                          const SizedBox(height: 40),
-                          const HardSkillsWidget(
-                            value: 1,
-                            text: 'Android: Kotlin',
-                          ),
+                          const SizedBox(height: 20),
+                          const HardSkillsWidget(),
                         ],
-                      )),
+                      ),
+                    ),
+                  ),
 
                   const SizedBox(height: 100),
                 ],

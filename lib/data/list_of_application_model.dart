@@ -1,6 +1,7 @@
 class ApplicationModel {
   final String logo;
   final String name;
+  final String description;
   final String language;
   final String? playMarketLink;
   final String? appStoreLink;
@@ -10,6 +11,7 @@ class ApplicationModel {
   ApplicationModel({
     required this.logo,
     required this.name,
+    required this.description,
     required this.language,
     this.playMarketLink,
     this.appStoreLink,

@@ -1,526 +1,266 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:my_portfolio_app/const/custom_scroll_behavior.dart';
+import 'package:my_portfolio_app/custom_widgets/animated_grid_view/animated_grid_view.dart';
 import 'package:my_portfolio_app/data/list_of_application_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../snap_scroll_physics.dart';
-
-final listOfApplication = [
-  ApplicationModel(
-    logo: 'assets/icons/top_logo.png',
-    name: 'TOP',
-    language: 'Flutter',
-    playMarketLink:
-        'https://play.google.com/store/apps/details?id=dev.odigital.topkg&pcampaignid=web_share',
-    // appStoreLink:
-    //     'https://apps.apple.com/kg/app/%D0%B0%D0%BA-%D1%8D%D0%BC%D0%B3%D0%B5%D0%BA/id1667796373',
-  ),
-  ApplicationModel(
-    logo: 'assets/icons/ak_emgek_logo.png',
-    name: 'Ак-Эмгек',
-    language: 'Flutter',
-    playMarketLink:
-        'https://play.google.com/store/apps/details?id=dev.odigital.ak_emgek',
-    appStoreLink:
-        'https://apps.apple.com/kg/app/%D0%B0%D0%BA-%D1%8D%D0%BC%D0%B3%D0%B5%D0%BA/id1667796373',
-  ),
-  ApplicationModel(
-    logo: 'assets/icons/osh_logo.png',
-    name: 'Ош online',
-    language: 'Flutter',
-    playMarketLink:
-        'https://play.google.com/store/apps/details?id=com.tologon.kudaiberdiuulu.osh.online',
-    appStoreLink: 'https://apps.apple.com/app/ош-online/id6444031624', /////
-  ),
-  ApplicationModel(
-    logo: 'assets/icons/e_service_logo.png',
-    name: 'Электроника сервис',
-    language: 'Flutter',
-    playMarketLink:
-        'https://play.google.com/store/apps/details?id=dev.electronica_service_mob',
-    // appStoreLink: '',
-  ),
-  ApplicationModel(
-    logo: 'assets/icons/jalal_abad_logo.jpg',
-    name: 'Жалал-Абад Online',
-    language: 'Flutter',
-    playMarketLink:
-        'https://play.google.com/store/apps/details?id=com.tologon.kudaiberdiuulu.jalalabad.online',
-    appStoreLink: 'https://apps.apple.com/app/ош-online/id6444031624',
-  ),
-  ApplicationModel(
-    logo: 'assets/icons/kara_balta_logo.png',
-    name: 'Кара-Балта 3133',
-    language: 'Flutter',
-    playMarketLink:
-        'https://play.google.com/store/apps/details?id=dev.kara_balta.odigital',
-    appStoreLink: 'https://apps.apple.com/app/ош-online/id6444031624',
-  ),
-  ApplicationModel(
-    logo: 'assets/icons/willex_cargo_logo.png',
-    name: 'Willex Cargo',
-    language: 'Flutter',
-    playMarketLink:
-        'https://play.google.com/store/apps/details?id=dev.odigital.willex',
-    appStoreLink: 'https://apps.apple.com/kg/app/willex/id6457265010',
-  ),
-  ApplicationModel(
-    logo: 'assets/icons/sapat_cargo_logo.png',
-    name: 'Sapat Cargo',
-    language: 'Flutter',
-    playMarketLink:
-        'https://play.google.com/store/apps/details?id=dev.sapat_cargo_mob',
-    appStoreLink: 'https://apps.apple.com/kg/app/sapat-cargo/id6466813542',
-  ),
-  ApplicationModel(
-    logo: 'assets/icons/manas_logis_logo.png',
-    name: 'Manas Logis',
-    language: 'Flutter',
-    playMarketLink:
-        'https://play.google.com/store/apps/details?id=dev.odigital.manas_logis',
-    appStoreLink: 'https://apps.apple.com/kg/app/manas-logis/id6464329215',
-  ),
-  ApplicationModel(
-    logo: 'assets/icons/taura_express_logo.png',
-    name: 'Taura Express',
-    language: 'Flutter',
-    playMarketLink:
-        'https://play.google.com/store/apps/details?id=dev.odigital.taura_express',
-    appStoreLink: 'https://apps.apple.com/kg/app/taura-express/id6450018127',
-    webLink: 'https://taurakg.com/',
-  ),
-  ApplicationModel(
-    logo: 'assets/icons/opop_logo.webp',
-    name: 'OPOP',
-    language: 'Flutter',
-    playMarketLink:
-        'https://play.google.com/store/apps/details?id=app.odigital.opop',
-    appStoreLink: 'https://apps.apple.com/kg/app/opop/id6444595393',
-  ),
-  ApplicationModel(
-    logo: 'assets/icons/favicon.png',
-    name: 'portfolio',
-    language: 'Flutter',
-    webLink: 'https://jumashovnursultan.github.io/',
-    githubLink: 'https://github.com/jumashovnursultan/flutter_portfolio',
-  ),
-];
-
-class LastProjectsCarouselSliderWidget extends StatelessWidget {
-  const LastProjectsCarouselSliderWidget({super.key});
+class LastProjectsGridWidget extends StatelessWidget {
+  const LastProjectsGridWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ScrollConfiguration(
-      behavior: CustomScrollBehavior(),
-      child: SizedBox(
-        height: 360,
-        width: double.infinity,
-        child: CarouselSlider.builder(
-          options: CarouselOptions(
-            aspectRatio: 16 / 20,
-            viewportFraction: getAdaptiveViewPortFraction(context),
-            autoPlay: true,
-            enableInfiniteScroll: true,
-            autoPlayInterval: const Duration(seconds: 10),
-            onPageChanged: (index, reason) {},
-          ),
-          itemCount: listOfApplication.length,
-          itemBuilder: (context, index, realIndex) {
-            final item = listOfApplication[index];
-            return Container(
-              margin: const EdgeInsets.only(right: 30, top: 10, bottom: 20),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: Column(
-                children: [
-                  const SizedBox(height: 30),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(50),
-                    child: Image.asset(
-                      item.logo,
-                      height: 100,
-                      width: 100,
-                    ),
-                  ),
-                  const SizedBox(height: 40),
-                  SelectableText(
-                    item.name,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 10),
-                  SelectableText(
-                    item.language,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                  const SizedBox(height: 25),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      if (item.appStoreLink != null)
-                        InkWell(
-                          onTap: () => launchUrl(
-                            Uri.parse(item.appStoreLink!),
-                            mode: LaunchMode.externalApplication,
-                          ),
-                          child: SvgPicture.asset(
-                            'assets/icons/app-store_logo.svg',
-                            height: 23,
-                            width: 23,
-                          ),
-                        ),
-                      if (item.playMarketLink != null) ...[
-                        const SizedBox(width: 10),
-                        InkWell(
-                          onTap: () => launchUrl(
-                            Uri.parse(item.playMarketLink!),
-                            mode: LaunchMode.externalApplication,
-                          ),
-                          child: SvgPicture.asset(
-                            'assets/icons/play-store_logo.svg',
-                            height: 20,
-                            width: 20,
-                          ),
-                        ),
-                      ],
-                      if (item.webLink != null) ...[
-                        const SizedBox(width: 10),
-                        InkWell(
-                          onTap: () => launchUrl(
-                            Uri.parse(item.webLink!),
-                            mode: LaunchMode.externalApplication,
-                          ),
-                          child: SvgPicture.asset(
-                            'assets/icons/chrome_logo.svg',
-                            height: 20,
-                            width: 20,
-                          ),
-                        ),
-                      ],
-                      if (item.githubLink != null) ...[
-                        const SizedBox(width: 10),
-                        InkWell(
-                          onTap: () => launchUrl(
-                            Uri.parse(item.githubLink!),
-                            mode: LaunchMode.externalApplication,
-                          ),
-                          child: SvgPicture.asset(
-                            'assets/icons/github_logo.svg',
-                            height: 20,
-                            width: 20,
-                          ),
-                        ),
-                      ],
-                    ],
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
+    final listOfApplication = [
+      ApplicationModel(
+        description: 'topDescription'.tr(),
+        logo: 'assets/icons/top_logo.png',
+        name: 'TOP',
+        language: 'Flutter',
+        playMarketLink:
+            'https://play.google.com/store/apps/details?id=dev.odigital.topkg&pcampaignid=web_share',
+        // appStoreLink:
+        //     'https://apps.apple.com/kg/app/%D0%B0%D0%BA-%D1%8D%D0%BC%D0%B3%D0%B5%D0%BA/id1667796373',
       ),
+      ApplicationModel(
+        description: '',
+        logo: 'assets/icons/ak_emgek_logo.png',
+        name: 'Ак-Эмгек',
+        language: 'Flutter',
+        playMarketLink:
+            'https://play.google.com/store/apps/details?id=dev.odigital.ak_emgek',
+        appStoreLink:
+            'https://apps.apple.com/kg/app/%D0%B0%D0%BA-%D1%8D%D0%BC%D0%B3%D0%B5%D0%BA/id1667796373',
+      ),
+      ApplicationModel(
+        logo: 'assets/icons/osh_logo.png',
+        name: 'Ош online',
+        description: '',
+        language: 'Flutter',
+        playMarketLink:
+            'https://play.google.com/store/apps/details?id=com.tologon.kudaiberdiuulu.osh.online',
+        appStoreLink: 'https://apps.apple.com/app/ош-online/id6444031624', /////
+      ),
+      ApplicationModel(
+        logo: 'assets/icons/e_service_logo.png',
+        name: 'Электроника сервис',
+        description: '',
+        language: 'Flutter',
+        playMarketLink:
+            'https://play.google.com/store/apps/details?id=dev.electronica_service_mob',
+        // appStoreLink: '',
+      ),
+      ApplicationModel(
+        logo: 'assets/icons/jalal_abad_logo.jpg',
+        name: 'Жалал-Абад Online',
+        description: '',
+        language: 'Flutter',
+        playMarketLink:
+            'https://play.google.com/store/apps/details?id=com.tologon.kudaiberdiuulu.jalalabad.online',
+        appStoreLink: 'https://apps.apple.com/app/ош-online/id6444031624',
+      ),
+      ApplicationModel(
+        logo: 'assets/icons/kara_balta_logo.png',
+        name: 'Кара-Балта 3133',
+        description: '',
+        language: 'Flutter',
+        playMarketLink:
+            'https://play.google.com/store/apps/details?id=dev.kara_balta.odigital',
+        appStoreLink: 'https://apps.apple.com/app/ош-online/id6444031624',
+      ),
+      ApplicationModel(
+        logo: 'assets/icons/willex_cargo_logo.png',
+        name: 'Willex Cargo',
+        description: '',
+        language: 'Flutter',
+        playMarketLink:
+            'https://play.google.com/store/apps/details?id=dev.odigital.willex',
+        appStoreLink: 'https://apps.apple.com/kg/app/willex/id6457265010',
+      ),
+      ApplicationModel(
+        logo: 'assets/icons/sapat_cargo_logo.png',
+        name: 'Sapat Cargo',
+        description: '',
+        language: 'Flutter',
+        playMarketLink:
+            'https://play.google.com/store/apps/details?id=dev.sapat_cargo_mob',
+        appStoreLink: 'https://apps.apple.com/kg/app/sapat-cargo/id6466813542',
+      ),
+      ApplicationModel(
+        logo: 'assets/icons/manas_logis_logo.png',
+        name: 'Manas Logis',
+        description: '',
+        language: 'Flutter',
+        playMarketLink:
+            'https://play.google.com/store/apps/details?id=dev.odigital.manas_logis',
+        appStoreLink: 'https://apps.apple.com/kg/app/manas-logis/id6464329215',
+      ),
+      ApplicationModel(
+        logo: 'assets/icons/taura_express_logo.png',
+        name: 'Taura Express',
+        description: '',
+        language: 'Flutter',
+        playMarketLink:
+            'https://play.google.com/store/apps/details?id=dev.odigital.taura_express',
+        appStoreLink:
+            'https://apps.apple.com/kg/app/taura-express/id6450018127',
+        webLink: 'https://taurakg.com/',
+      ),
+      ApplicationModel(
+        logo: 'assets/icons/opop_logo.webp',
+        name: 'OPOP',
+        description: '',
+        language: 'Flutter',
+        playMarketLink:
+            'https://play.google.com/store/apps/details?id=app.odigital.opop',
+        appStoreLink: 'https://apps.apple.com/kg/app/opop/id6444595393',
+      ),
+      ApplicationModel(
+        logo: 'assets/icons/favicon.png',
+        name: 'portfolio',
+        description: '',
+        language: 'Flutter',
+        webLink: 'https://jumashovnursultan.github.io/',
+        githubLink: 'https://github.com/jumashovnursultan/flutter_portfolio',
+      ),
+    ];
+
+    return AnimatedGridView(
+      itemCount: listOfApplication.length,
+      shrinkWrap: true,
+      mainAxisSpacing: 15,
+      crossAxisSpacing: 12,
+      padding: const EdgeInsets.fromLTRB(11, 10, 11, 21),
+      physics: const NeverScrollableScrollPhysics(),
+      crossAxisCount: calculateCards(context, 400),
+      builder: (context, index) {
+        final item = listOfApplication[index];
+
+        return Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.1),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: const Offset(0, 3),
+              ),
+            ],
+          ),
+          alignment: Alignment.center,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.asset(
+                    item.logo,
+                    height: 80,
+                    width: 80,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Text(
+                item.name,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 5),
+              Text(
+                item.description,
+                style: const TextStyle(
+                  fontSize: 13,
+                  color: Colors.black87,
+                ),
+                maxLines: 5,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 15),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: const Color(0xFFF1F7FF),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  item.language,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Color(0xFF3F74EE),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
+              Wrap(
+                spacing: 20,
+                runSpacing: 20,
+                children: [
+                  if (item.appStoreLink != null)
+                    InkWell(
+                      onTap: () => launchUrl(
+                        Uri.parse(item.appStoreLink!),
+                        mode: LaunchMode.externalApplication,
+                      ),
+                      child: SvgPicture.asset(
+                        'assets/icons/app-store_logo.svg',
+                        height: 20,
+                      ),
+                    ),
+                  if (item.playMarketLink != null)
+                    InkWell(
+                      onTap: () => launchUrl(
+                        Uri.parse(item.playMarketLink!),
+                        mode: LaunchMode.externalApplication,
+                      ),
+                      child: SvgPicture.asset(
+                        'assets/icons/play-store_logo.svg',
+                        height: 20,
+                      ),
+                    ),
+                  if (item.webLink != null)
+                    InkWell(
+                      onTap: () => launchUrl(
+                        Uri.parse(item.webLink!),
+                        mode: LaunchMode.externalApplication,
+                      ),
+                      child: SvgPicture.asset(
+                        'assets/icons/chrome_logo.svg',
+                        height: 20,
+                      ),
+                    ),
+                  if (item.githubLink != null)
+                    InkWell(
+                      onTap: () => launchUrl(
+                        Uri.parse(item.githubLink!),
+                        mode: LaunchMode.externalApplication,
+                      ),
+                      child: SvgPicture.asset(
+                        'assets/icons/github_logo.svg',
+                        height: 20,
+                      ),
+                    ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 
-  double getAdaptiveViewPortFraction(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    if (screenWidth <= 280) {
-      return 0.95;
-    } else if (screenWidth <= 320) {
-      return 0.9;
-    } else if (screenWidth <= 360) {
-      return 0.8;
-    } else if (screenWidth <= 400) {
-      return 0.7;
-    } else if (screenWidth <= 440) {
-      return 0.6;
-    } else if (screenWidth <= 480) {
-      return 0.55;
-    } else if (screenWidth <= 520) {
-      return 0.5;
-    } else if (screenWidth <= 560) {
-      return 0.5;
-    } else if (screenWidth <= 600) {
-      return 0.45;
-    } else if (screenWidth <= 640) {
-      return 0.4;
-    } else if (screenWidth <= 680) {
-      return 0.4;
-    } else if (screenWidth <= 720) {
-      return 0.4;
-    } else if (screenWidth <= 760) {
-      return 0.35;
-    } else if (screenWidth <= 800) {
-      return 0.35;
-    } else if (screenWidth <= 840) {
-      return 0.3;
-    } else if (screenWidth <= 880) {
-      return 0.3;
-    } else if (screenWidth <= 920) {
-      return 0.3;
-    } else if (screenWidth <= 960) {
-      return 0.3;
-    } else if (screenWidth <= 1000) {
-      return 0.28;
-    } else if (screenWidth <= 1040) {
-      return 0.28;
-    } else if (screenWidth <= 1080) {
-      return 0.25;
-    } else if (screenWidth <= 1120) {
-      return 0.25;
-    } else if (screenWidth <= 1260) {
-      return 0.22;
-    } else if (screenWidth <= 1300) {
-      return 0.21;
-    } else if (screenWidth <= 1340) {
-      return 0.20;
-    } else if (screenWidth <= 1380) {
-      return 0.19;
-    } else if (screenWidth <= 1420) {
-      return 0.18;
-    } else if (screenWidth <= 1460) {
-      return 0.17;
-    } else if (screenWidth <= 1500) {
-      return 0.16;
-    } else if (screenWidth <= 1540) {
-      return 0.15;
-    } else if (screenWidth <= 1580) {
-      return 0.14;
-    } else {
-      return 0.13;
-    }
+  static int calculateCards(BuildContext context, double width) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double cardWidth = width;
+    int crossAxisCount = screenWidth ~/ cardWidth;
+
+    return crossAxisCount;
   }
 }
-
-
-
-        // child: ListView.builder(
-        //   physics: const SnapScrollPhysics(
-        //     snapSize: 200,
-        //   ),
-        //   scrollDirection: Axis.horizontal,
-        //   dragStartBehavior: DragStartBehavior.start,
-        //   itemCount: listOfApplication.length,
-        //   itemBuilder: (context, index) {
-        //     final item = listOfApplication[index];
-
-        //     return Container(
-        //       width: 200,
-        //       margin: const EdgeInsets.only(right: 30, top: 10, bottom: 20),
-        //       decoration: BoxDecoration(
-        //         borderRadius: BorderRadius.circular(20),
-        //         color: Colors.white,
-        //         boxShadow: [
-        //           BoxShadow(
-        //             color: Colors.grey.withOpacity(0.2),
-        //             spreadRadius: 5,
-        //             blurRadius: 7,
-        //             offset: const Offset(0, 3),
-        //           ),
-        //         ],
-        //       ),
-        //       child: Column(
-        //         children: [
-        //           const SizedBox(height: 30),
-        //           ClipRRect(
-        //             borderRadius: BorderRadius.circular(50),
-        //             child: Image.asset(
-        //               item.logo,
-        //               height: 100,
-        //               width: 100,
-        //             ),
-        //           ),
-        //           const SizedBox(height: 40),
-        //           SelectableText(
-        //             item.name,
-        //             style: const TextStyle(
-        //               fontSize: 20,
-        //               color: Colors.black,
-        //               fontWeight: FontWeight.w500,
-        //             ),
-        //             textAlign: TextAlign.center,
-        //           ),
-        //           const SizedBox(height: 10),
-        //           SelectableText(
-        //             item.language,
-        //             style: const TextStyle(
-        //               fontSize: 16,
-        //               color: Colors.black,
-        //               fontWeight: FontWeight.w300,
-        //             ),
-        //           ),
-        //           const SizedBox(height: 25),
-        //           Row(
-        //             mainAxisAlignment: MainAxisAlignment.center,
-        //             children: [
-        //               if (item.appStoreLink != null)
-        //                 InkWell(
-        //                   onTap: () => launchUrl(
-        //                     Uri.parse(item.appStoreLink!),
-        //                     mode: LaunchMode.externalApplication,
-        //                   ),
-        //                   child: SvgPicture.asset(
-        //                     'assets/icons/app-store_logo.svg',
-        //                     height: 23,
-        //                     width: 23,
-        //                   ),
-        //                 ),
-        //               if (item.playMarketLink != null) ...[
-        //                 const SizedBox(width: 10),
-        //                 InkWell(
-        //                   onTap: () => launchUrl(
-        //                     Uri.parse(item.playMarketLink!),
-        //                     mode: LaunchMode.externalApplication,
-        //                   ),
-        //                   child: SvgPicture.asset(
-        //                     'assets/icons/play-store_logo.svg',
-        //                     height: 20,
-        //                     width: 20,
-        //                   ),
-        //                 ),
-        //               ],
-        //               if (item.webLink != null) ...[
-        //                 const SizedBox(width: 10),
-        //                 InkWell(
-        //                   onTap: () => launchUrl(
-        //                     Uri.parse(item.webLink!),
-        //                     mode: LaunchMode.externalApplication,
-        //                   ),
-        //                   child: SvgPicture.asset(
-        //                     'assets/icons/chrome_logo.svg',
-        //                     height: 20,
-        //                     width: 20,
-        //                   ),
-        //                 ),
-        //               ],
-        //             ],
-        //           ),
-        //         ],
-        //       ),
-        //     );
-        //   },
-        // ),
-        // child: PageView.builder(
-        //   controller: PageController(
-        //     viewportFraction: getAdaptiveViewPortFraction(context),
-        //     initialPage: width >= 1290 ? 1 : 0,
-        //   ),
-        //   itemCount: listOfApplication.length,
-        // itemBuilder: (context, index) {
-        // final item = listOfApplication[index];
-        // return Container(
-        //   margin: const EdgeInsets.only(right: 30, top: 10, bottom: 20),
-        //   decoration: BoxDecoration(
-        //     borderRadius: BorderRadius.circular(20),
-        //     color: Colors.white,
-        //     boxShadow: [
-        //       BoxShadow(
-        //         color: Colors.grey.withOpacity(0.2),
-        //         spreadRadius: 5,
-        //         blurRadius: 7,
-        //         offset: const Offset(0, 3),
-        //       ),
-        //     ],
-        //   ),
-        //   child: Column(
-        //     children: [
-        //       const SizedBox(height: 30),
-        //       ClipRRect(
-        //         borderRadius: BorderRadius.circular(50),
-        //         child: Image.asset(
-        //           item.logo,
-        //           height: 100,
-        //           width: 100,
-        //         ),
-        //       ),
-        //       const SizedBox(height: 40),
-        //       SelectableText(
-        //         item.name,
-        //         style: const TextStyle(
-        //           fontSize: 20,
-        //           color: Colors.black,
-        //           fontWeight: FontWeight.w500,
-        //         ),
-        //         textAlign: TextAlign.center,
-        //       ),
-        //       const SizedBox(height: 10),
-        //       SelectableText(
-        //         item.language,
-        //         style: const TextStyle(
-        //           fontSize: 16,
-        //           color: Colors.black,
-        //           fontWeight: FontWeight.w300,
-        //         ),
-        //       ),
-        //       const SizedBox(height: 25),
-        //       Row(
-        //         mainAxisAlignment: MainAxisAlignment.center,
-        //         children: [
-        //           if (item.appStoreLink != null)
-        //             InkWell(
-        //               onTap: () => launchUrl(
-        //                 Uri.parse(item.appStoreLink!),
-        //                 mode: LaunchMode.externalApplication,
-        //               ),
-        //               child: SvgPicture.asset(
-        //                 'assets/icons/app-store_logo.svg',
-        //                 height: 23,
-        //                 width: 23,
-        //               ),
-        //             ),
-        //           if (item.playMarketLink != null) ...[
-        //             const SizedBox(width: 10),
-        //             InkWell(
-        //               onTap: () => launchUrl(
-        //                 Uri.parse(item.playMarketLink!),
-        //                 mode: LaunchMode.externalApplication,
-        //               ),
-        //               child: SvgPicture.asset(
-        //                 'assets/icons/play-store_logo.svg',
-        //                 height: 20,
-        //                 width: 20,
-        //               ),
-        //             ),
-        //           ],
-        //           if (item.webLink != null) ...[
-        //             const SizedBox(width: 10),
-        //             InkWell(
-        //               onTap: () => launchUrl(
-        //                 Uri.parse(item.webLink!),
-        //                 mode: LaunchMode.externalApplication,
-        //               ),
-        //               child: SvgPicture.asset(
-        //                 'assets/icons/chrome_logo.svg',
-        //                 height: 20,
-        //                 width: 20,
-        //               ),
-        //             ),
-        //           ],
-        //         ],
-        //       ),
-        //     ],
-        //   ),
-        // );
-        // },
-        // ),

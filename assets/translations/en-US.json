@@ -19,5 +19,7 @@
     "workAtOdigital": "Worked as a Flutter Developer at Odigital, responsible for full-cycle development of cross-platform mobile apps for Android and iOS. Took part in architecture design, feature development, UI implementation, and deployment. Also temporarily served as a team lead on select projects.",
     "workAtFreelancing": "Worked as a Freelance Flutter Developer, delivering complete cross-platform mobile applications for clients in e-commerce, services, and task management. Responsible for full-cycle development: UI/UX implementation, business logic, REST API integration, and deployment. All projects were built independently, including direct communication with clients and product planning.",
     "iWorkedOn": "I worked on",
+    "hard": "Hard",
+    "topDescription": "Football platform for the CIS region. Built full user flow: registration, team creation, match scheduling, field booking, chat, and tournament participation. Implemented both UI and business logic for core features.",
     "last": "Last "
 }
