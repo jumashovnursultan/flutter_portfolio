@@ -5,11 +5,26 @@ import 'package:my_portfolio_app/custom_widgets/animated_grid_view/animated_grid
 import 'package:my_portfolio_app/data/list_of_application_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class LastProjectsGridWidget extends StatelessWidget {
+class LastProjectsGridWidget extends StatefulWidget {
   const LastProjectsGridWidget({super.key});
 
   @override
+  State<LastProjectsGridWidget> createState() => _LastProjectsGridWidgetState();
+
+  static int calculateCards(BuildContext context, double width) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double cardWidth = width;
+    int crossAxisCount = screenWidth ~/ cardWidth;
+
+    return crossAxisCount;
+  }
+}
+
+class _LastProjectsGridWidgetState extends State<LastProjectsGridWidget> {
+  @override
   Widget build(BuildContext context) {
+    context.locale;
+
     final listOfApplication = [
       ApplicationModel(
         description: 'topDescription'.tr(),
@@ -131,7 +146,7 @@ class LastProjectsGridWidget extends StatelessWidget {
       crossAxisSpacing: 12,
       padding: const EdgeInsets.fromLTRB(11, 10, 11, 21),
       physics: const NeverScrollableScrollPhysics(),
-      crossAxisCount: calculateCards(context, 400),
+      crossAxisCount: LastProjectsGridWidget.calculateCards(context, 400),
       builder: (context, index) {
         final item = listOfApplication[index];
 
@@ -165,7 +180,7 @@ class LastProjectsGridWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              Text(
+              SelectableText(
                 item.name,
                 style: const TextStyle(
                   fontSize: 18,
@@ -173,17 +188,17 @@ class LastProjectsGridWidget extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 5),
-              Text(
+              SelectableText(
                 item.description,
                 style: const TextStyle(
                   fontSize: 13,
                   color: Colors.black87,
                 ),
                 maxLines: 5,
-                overflow: TextOverflow.ellipsis,
+                // overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -254,13 +269,5 @@ class LastProjectsGridWidget extends StatelessWidget {
         );
       },
     );
-  }
-
-  static int calculateCards(BuildContext context, double width) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double cardWidth = width;
-    int crossAxisCount = screenWidth ~/ cardWidth;
-
-    return crossAxisCount;
   }
 }

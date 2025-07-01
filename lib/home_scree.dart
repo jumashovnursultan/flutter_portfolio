@@ -269,7 +269,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   const SizedBox(height: 50),
-                  // Тут писать навыки
+
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Padding(
