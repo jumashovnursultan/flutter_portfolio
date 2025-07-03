@@ -161,48 +161,73 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       InkWell(
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          splashColor: Colors.transparent,
-                          onTap: () => launchUrl(
-                                Uri.parse(
-                                    'mailto:nursultanjumashovv@gmail.com'),
-                                mode: LaunchMode.externalApplication,
-                              ),
-                          child: SvgPicture.asset('assets/icons/gmail.svg')),
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        splashColor: Colors.transparent,
+                        onTap: () => launchUrl(
+                          Uri.parse('mailto:nursultanjumashovv@gmail.com'),
+                          mode: LaunchMode.externalApplication,
+                        ),
+                        child: SvgPicture.asset('assets/icons/gmail.svg'),
+                      ),
                       const SizedBox(width: 10),
                       InkWell(
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          splashColor: Colors.transparent,
-                          onTap: () => launchUrl(
-                                Uri.parse(
-                                    'https://github.com/jumashovnursultan'),
-                                mode: LaunchMode.externalApplication,
-                              ),
-                          child: SvgPicture.asset('assets/icons/github.svg')),
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        splashColor: Colors.transparent,
+                        onTap: () => launchUrl(
+                          Uri.parse('https://github.com/jumashovnursultan'),
+                          mode: LaunchMode.externalApplication,
+                        ),
+                        child: SvgPicture.asset('assets/icons/github.svg'),
+                      ),
                       const SizedBox(width: 10),
                       InkWell(
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          splashColor: Colors.transparent,
-                          onTap: () => launchUrl(
-                                Uri.parse('tg://t.me/nursultanjumashov'),
-                                mode: LaunchMode.externalApplication,
-                              ),
-                          child: SvgPicture.asset('assets/icons/telegram.svg')),
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        splashColor: Colors.transparent,
+                        onTap: () => launchUrl(
+                          Uri.parse(
+                              'https://www.linkedin.com/in/nursultan-jumashov/'),
+                          mode: LaunchMode.externalApplication,
+                        ),
+                        child: Container(
+                          width: 61,
+                          height: 61,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                  width: 1, color: const Color(0xFFE3E3E3))),
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.all(8),
+                          child: SvgPicture.asset(
+                              'assets/icons/linkedin_icon.svg'),
+                        ),
+                      ),
                       const SizedBox(width: 10),
                       InkWell(
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          splashColor: Colors.transparent,
-                          onTap: () => launchUrl(
-                                Uri.parse(
-                                    'https://www.instagram.com/nursultanjumashovv/'),
-                                mode: LaunchMode.externalApplication,
-                              ),
-                          child:
-                              SvgPicture.asset('assets/icons/instagram.svg')),
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        splashColor: Colors.transparent,
+                        onTap: () => launchUrl(
+                          Uri.parse('tg://t.me/nursultanjumashov'),
+                          mode: LaunchMode.externalApplication,
+                        ),
+                        child: SvgPicture.asset('assets/icons/telegram.svg'),
+                      ),
+                      const SizedBox(width: 10),
+                      InkWell(
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        splashColor: Colors.transparent,
+                        onTap: () => launchUrl(
+                          Uri.parse(
+                              'https://www.instagram.com/nursultanjumashovv/'),
+                          mode: LaunchMode.externalApplication,
+                        ),
+                        child: SvgPicture.asset('assets/icons/instagram.svg'),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 10),
