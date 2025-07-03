@@ -45,8 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ? PreferredSize(
                     preferredSize: const Size.fromHeight(50),
                     child: MenuRowWidget(
-                      onAboutPressed: () => _postInit(350),
-                      onProjectsPressed: () =>
+                      onAboutPressed: () => _postInit(250),
+                      onProjectsPressed: () => _postInit(1500),
+                      onSkillsPressed: () =>
                           _postInit(_scrollController.position.maxScrollExtent),
                       onContactPressed: () => _postInit(450),
                     ),
@@ -81,8 +82,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               else
                 MenuRowWidget(
-                  onAboutPressed: () => _postInit(350),
-                  onProjectsPressed: () =>
+                  onAboutPressed: () => _postInit(250),
+                  onProjectsPressed: () => _postInit(1380),
+                  onSkillsPressed: () =>
                       _postInit(_scrollController.position.maxScrollExtent),
                   onContactPressed: () => _postInit(450),
                 ),
@@ -196,7 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           splashColor: Colors.transparent,
                           onTap: () => launchUrl(
                                 Uri.parse(
-                                    'https://www.instagram.com/nursultanjumashov_/'),
+                                    'https://www.instagram.com/nursultanjumashovv/'),
                                 mode: LaunchMode.externalApplication,
                               ),
                           child:

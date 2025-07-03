@@ -152,13 +152,26 @@ class _LastProjectsGridWidgetState extends State<LastProjectsGridWidget> {
         appStoreLink: 'https://apps.apple.com/us/app/appkel-sat/id6502717515',
       ),
       ApplicationModel(
-        logo: 'assets/icons/favicon.png',
-        name: 'portfolio',
-        description: '',
+        logo: 'assets/icons/chelnok_icon.png',
+        name: 'Chelnok',
+        description: 'chelnokSatDescription'.tr(),
         language: 'Flutter',
-        webLink: 'https://jumashovnursultan.github.io/',
-        githubLink: 'https://github.com/jumashovnursultan/flutter_portfolio',
+        appStoreLink: 'https://apps.apple.com/kg/app/chelnok/id6741675940',
       ),
+      ApplicationModel(
+        logo: 'assets/icons/adhdo_it_logo.png',
+        name: 'ADHDo.it (To do)',
+        description: 'toDoDescription'.tr(),
+        language: 'Flutter',
+      ),
+      // ApplicationModel(
+      //   logo: 'assets/icons/favicon.png',
+      //   name: 'portfolio',
+      //   description: '',
+      //   language: 'Flutter',
+      //   webLink: 'https://jumashovnursultan.github.io/',
+      //   githubLink: 'https://github.com/jumashovnursultan/flutter_portfolio',
+      // ),
     ];
 
     return AnimatedGridView(
@@ -202,6 +215,7 @@ class _LastProjectsGridWidgetState extends State<LastProjectsGridWidget> {
                   ),
                 ),
               ),
+              const SizedBox(height: 10),
               SelectableText(
                 item.name,
                 style: const TextStyle(
@@ -209,7 +223,7 @@ class _LastProjectsGridWidgetState extends State<LastProjectsGridWidget> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 10),
               SelectableText(
                 item.description,
                 style: const TextStyle(

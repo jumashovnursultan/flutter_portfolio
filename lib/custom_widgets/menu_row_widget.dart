@@ -7,11 +7,13 @@ class MenuRowWidget extends StatelessWidget {
       {super.key,
       required this.onAboutPressed,
       required this.onProjectsPressed,
-      required this.onContactPressed});
+      required this.onContactPressed,
+      required this.onSkillsPressed});
 
   final Function() onAboutPressed;
   final Function() onProjectsPressed;
   final Function() onContactPressed;
+  final Function() onSkillsPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,13 @@ class MenuRowWidget extends StatelessWidget {
           onPressed: onProjectsPressed,
           child: Text(
             'projects'.tr(),
+          ),
+        ),
+        const SizedBox(width: 20),
+        TextButton(
+          onPressed: onSkillsPressed,
+          child: Text(
+            'skills'.tr(),
           ),
         ),
         const SizedBox(width: 20),
