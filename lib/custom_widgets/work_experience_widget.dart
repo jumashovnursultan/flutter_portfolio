@@ -6,13 +6,13 @@ class WorkExperienceWidget extends StatelessWidget {
     super.key,
     required this.companyName,
     required this.position,
-    required this.date,
+    this.date,
     this.description,
   });
 
   final String companyName;
   final String position;
-  final String date;
+  final String? date;
   final String? description;
 
   @override
@@ -29,10 +29,11 @@ class WorkExperienceWidget extends StatelessWidget {
           position,
           style: const TextStyle(fontSize: 20),
         ),
-        SelectableText(
-          date,
-          style: const TextStyle(fontSize: 20),
-        ),
+        if (date != null)
+          SelectableText(
+            date!,
+            style: const TextStyle(fontSize: 20),
+          ),
         if (description != null) ...[
           const SizedBox(height: 12),
           SelectableText(

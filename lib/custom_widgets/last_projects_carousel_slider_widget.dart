@@ -33,8 +33,7 @@ class _LastProjectsGridWidgetState extends State<LastProjectsGridWidget> {
         language: 'Flutter',
         playMarketLink:
             'https://play.google.com/store/apps/details?id=dev.odigital.topkg&pcampaignid=web_share',
-        // appStoreLink:
-        //     'https://apps.apple.com/kg/app/%D0%B0%D0%BA-%D1%8D%D0%BC%D0%B3%D0%B5%D0%BA/id1667796373',
+        appStoreLink: 'https://apps.apple.com/kg/app/top/id6477701651',
       ),
       ApplicationModel(
         description: 'akemgekDescription'.tr(),
@@ -43,8 +42,6 @@ class _LastProjectsGridWidgetState extends State<LastProjectsGridWidget> {
         language: 'Flutter',
         playMarketLink:
             'https://play.google.com/store/apps/details?id=dev.odigital.ak_emgek',
-        appStoreLink:
-            'https://apps.apple.com/kg/app/%D0%B0%D0%BA-%D1%8D%D0%BC%D0%B3%D0%B5%D0%BA/id1667796373',
       ),
       ApplicationModel(
         logo: 'assets/icons/osh_logo.png',
@@ -62,8 +59,29 @@ class _LastProjectsGridWidgetState extends State<LastProjectsGridWidget> {
         language: 'Flutter',
         playMarketLink:
             'https://play.google.com/store/apps/details?id=dev.electronica_service_mob',
-        // appStoreLink: '',
+        appStoreLink: 'https://apps.apple.com/kg/app/yldam-cargo/id6470746288',
       ),
+
+      ApplicationModel(
+        logo: 'assets/icons/yldam_express_logo.png',
+        name: 'Yldam Cargo',
+        description: 'yldamCargoDescription'.tr(),
+        language: 'Flutter',
+        playMarketLink:
+            'https://play.google.com/store/apps/details?id=dev.odigital.yldamexpress',
+        appStoreLink: 'https://apps.apple.com/kg/app/dondone/id6746246336',
+      ),
+      ApplicationModel(
+        logo: 'assets/icons/adhdo_it_logo.png',
+        name: 'ADHDo.it (To do)',
+        description: 'toDoDescription'.tr(),
+        language: 'Flutter',
+        appStoreLink:
+            'https://apps.apple.com/kg/app/mbank-%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%B1%D0%B0%D0%BD%D0%BA/id6749378933',
+        playMarketLink:
+            'https://play.google.com/store/apps/details?id=dev.adhdo.dondone',
+      ),
+
       ApplicationModel(
         logo: 'assets/icons/jalal_abad_logo.jpg',
         name: 'Жалал-Абад Online',
@@ -71,7 +89,8 @@ class _LastProjectsGridWidgetState extends State<LastProjectsGridWidget> {
         language: 'Flutter',
         playMarketLink:
             'https://play.google.com/store/apps/details?id=com.tologon.kudaiberdiuulu.jalalabad.online',
-        appStoreLink: 'https://apps.apple.com/app/ош-online/id6444031624',
+        appStoreLink:
+            'https://apps.apple.com/us/app/%D0%B6%D0%B0%D0%BB%D0%B0%D0%BB-%D0%B0%D0%B1%D0%B0%D0%B4-online/id1658587499',
       ),
       ApplicationModel(
         logo: 'assets/icons/kara_balta_logo.png',
@@ -80,7 +99,8 @@ class _LastProjectsGridWidgetState extends State<LastProjectsGridWidget> {
         language: 'Flutter',
         playMarketLink:
             'https://play.google.com/store/apps/details?id=dev.kara_balta.odigital',
-        appStoreLink: 'https://apps.apple.com/app/ош-online/id6444031624',
+        appStoreLink:
+            'https://apps.apple.com/us/app/%D0%BA%D0%B0%D1%80%D0%B0-%D0%B1%D0%B0%D0%BB%D1%82%D0%B0/id6448093653',
       ),
       ApplicationModel(
         logo: 'assets/icons/willex_cargo_logo.png',
@@ -91,15 +111,7 @@ class _LastProjectsGridWidgetState extends State<LastProjectsGridWidget> {
             'https://play.google.com/store/apps/details?id=dev.odigital.willex',
         appStoreLink: 'https://apps.apple.com/kg/app/willex/id6457265010',
       ),
-      ApplicationModel(
-        logo: 'assets/icons/sapat_cargo_logo.png',
-        name: 'Sapat Cargo',
-        description: 'sapatCargoDescription'.tr(),
-        language: 'Flutter',
-        playMarketLink:
-            'https://play.google.com/store/apps/details?id=dev.sapat_cargo_mob',
-        appStoreLink: 'https://apps.apple.com/kg/app/sapat-cargo/id6466813542',
-      ),
+
       ApplicationModel(
         logo: 'assets/icons/manas_logis_logo.png',
         name: 'Manas Logis',
@@ -115,34 +127,18 @@ class _LastProjectsGridWidgetState extends State<LastProjectsGridWidget> {
         description: 'tauraExpressDescription'.tr(),
         language: 'Flutter',
         playMarketLink:
-            'https://play.google.com/store/apps/details?id=dev.odigital.taura_express',
+            'https://play.google.com/store/apps/details?id=dev.kg.taura',
         appStoreLink:
             'https://apps.apple.com/kg/app/taura-express/id6450018127',
         webLink: 'https://taurakg.com/',
       ),
-      ApplicationModel(
-        logo: 'assets/icons/opop_logo.webp',
-        name: 'OPOP',
-        description: 'opopDescription'.tr(),
-        language: 'Flutter',
-        playMarketLink:
-            'https://play.google.com/store/apps/details?id=app.odigital.opop',
-        appStoreLink: 'https://apps.apple.com/kg/app/opop/id6444595393',
-      ),
-      ApplicationModel(
-        logo: 'assets/icons/yldam_express_logo.png',
-        name: 'Yldam Cargo',
-        description: 'yldamCargoDescription'.tr(),
-        language: 'Flutter',
-      ),
+
       ApplicationModel(
         logo: 'assets/icons/appkel_logo.jpg',
         name: 'Appkel',
         description: 'appkelDescription'.tr(),
         language: 'Flutter',
         appStoreLink: 'https://apps.apple.com/us/app/appkel/id6502715512',
-        playMarketLink:
-            'https://play.google.com/store/apps/details?id=dev.clients.appkelkg&pcampaignid=web_share',
       ),
       ApplicationModel(
         logo: 'assets/icons/appkel_sat_logo.jpg',
@@ -158,10 +154,18 @@ class _LastProjectsGridWidgetState extends State<LastProjectsGridWidget> {
         language: 'Flutter',
         appStoreLink: 'https://apps.apple.com/kg/app/chelnok/id6741675940',
       ),
+
       ApplicationModel(
-        logo: 'assets/icons/adhdo_it_logo.png',
-        name: 'ADHDo.it (To do)',
-        description: 'toDoDescription'.tr(),
+        logo: 'assets/icons/opop_logo.webp',
+        name: 'OPOP',
+        description: 'opopDescription'.tr(),
+        language: 'Flutter',
+        appStoreLink: 'https://apps.apple.com/kg/app/opop/id6444595393',
+      ),
+      ApplicationModel(
+        logo: 'assets/icons/sapat_cargo_logo.png',
+        name: 'Sapat Cargo',
+        description: 'sapatCargoDescription'.tr(),
         language: 'Flutter',
       ),
       // ApplicationModel(

@@ -262,9 +262,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 10,
                         ),
                         WorkExperienceWidget(
-                          companyName: 'Freelancing',
+                          companyName:
+                              'Freelancing (${'dateOfFreelancing'.tr()})',
                           position: 'flutterDeveloper'.tr(),
-                          date: 'june2023'.tr(),
                           description: 'workAtFreelancing'.tr(),
                         ),
 
