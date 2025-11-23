@@ -36,14 +36,6 @@ class _LastProjectsGridWidgetState extends State<LastProjectsGridWidget> {
         appStoreLink: 'https://apps.apple.com/kg/app/top/id6477701651',
       ),
       ApplicationModel(
-        description: 'akemgekDescription'.tr(),
-        logo: 'assets/icons/ak_emgek_logo.png',
-        name: 'Ак-Эмгек',
-        language: 'Flutter',
-        playMarketLink:
-            'https://play.google.com/store/apps/details?id=dev.odigital.ak_emgek',
-      ),
-      ApplicationModel(
         logo: 'assets/icons/osh_logo.png',
         name: 'Ош online',
         description: 'oshOnlineDescription'.tr(),
@@ -52,6 +44,15 @@ class _LastProjectsGridWidgetState extends State<LastProjectsGridWidget> {
             'https://play.google.com/store/apps/details?id=com.tologon.kudaiberdiuulu.osh.online',
         appStoreLink: 'https://apps.apple.com/app/ош-online/id6444031624', /////
       ),
+      ApplicationModel(
+        description: 'akemgekDescription'.tr(),
+        logo: 'assets/icons/ak_emgek_logo.png',
+        name: 'Ак-Эмгек',
+        language: 'Flutter',
+        playMarketLink:
+            'https://play.google.com/store/apps/details?id=dev.odigital.ak_emgek',
+      ),
+
       ApplicationModel(
         logo: 'assets/icons/e_service_logo.png',
         name: 'Электроника сервис',
