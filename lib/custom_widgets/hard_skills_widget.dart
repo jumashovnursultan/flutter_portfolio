@@ -7,58 +7,44 @@ class HardSkillsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final skills = [
       {
-        'title': 'Языки:',
-        'content':
-            'Dart (Null Safety, Streams, Futures), JavaScript (базовый уровень)',
+        'title': 'Languages:',
+        'content': 'Dart (Null Safety, Streams, Futures)',
       },
       {
         'title': 'Flutter:',
-        'content': '3.5 года опыта в проде (iOS/Android/Web)',
+        'content': '3+ years of production experience (iOS/Android)',
       },
       {
-        'title': 'Архитектура:',
-        'content': 'Clean Architecture, MVVM, BLoC, Provider, Riverpod',
+        'title': 'Architecture:',
+        'content': 'Clean Architecture, MVVM',
       },
       {
-        'title': 'Состояние:',
-        'content': 'Provider, Riverpod, GetX (по проекту)',
+        'title': 'State Management:',
+        'content': 'Provider, Riverpod, BLoC',
       },
       {
         'title': 'API:',
-        'content': 'REST, Dio, http, GraphQL (базово)',
+        'content': 'REST (Dio, http)',
       },
       {
-        'title': 'Базы данных:',
-        'content': 'Hive, SharedPreferences, Firebase Firestore',
+        'title': 'Local Storage:',
+        'content': 'SQLite, SharedPreferences',
       },
       {
         'title': 'Firebase:',
-        'content': 'Аутентификация, Cloud Messaging, Crashlytics',
-      },
-      {
-        'title': 'Уведомления:',
-        'content': 'flutter_local_notifications, Firebase Messaging',
-      },
-      {
-        'title': 'CI/CD:',
-        'content':
-            'GitHub Actions, Fastlane, публикация в Google Play и App Store',
-      },
-      {
-        'title': 'Тестирование:',
-        'content': 'Unit, Widget и Integration tests',
+        'content': 'Authentication, Cloud Messaging, Firestore, Crashlytics',
       },
       {
         'title': 'UI/UX:',
-        'content': 'Адаптивный дизайн, кастомные темы, анимации',
+        'content': 'Responsive design, custom themes, animations, localization',
       },
       {
-        'title': 'Инструменты:',
+        'title': 'Tools:',
         'content': 'Git, Android Studio, VS Code, Postman',
       },
       {
-        'title': 'Дополнительно:',
-        'content': 'Flutter Web, локализация (.intl, .arb, flutter_gen)',
+        'title': 'Deployment:',
+        'content': 'App Store and Google Play (manual build and publishing)',
       },
     ];
 
