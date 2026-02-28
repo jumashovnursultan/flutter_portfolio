@@ -86,6 +86,9 @@ class PortfolioData {
       emoji: '🐑',
       category: 'AgriTech',
       landingUrl: 'https://malbazar.me/',
+      appStoreUrl:
+          'https://apps.apple.com/us/app/%D0%BC%D0%B0%D0%BB-%D0%B1%D0%B0%D0%B7%D0%B0%D1%80/id6745025940',
+      playStoreUrl: 'https://play.google.com/store/apps/details?id=kg.dev.mb',
     ),
     Project(
       title: 'Chelnok',
@@ -102,25 +105,33 @@ class PortfolioData {
       emoji: '🧵',
       category: 'E-Commerce',
       landingUrl: 'https://chelnok.kg/',
+      appStoreUrl:
+          'https://apps.apple.com/kg/app/%D1%87%D0%B5%D0%BB%D0%BD%D0%BE%D0%BA-chelnok/id6741675940',
+      playStoreUrl:
+          'https://play.google.com/store/apps/details?id=com.erlanoff.shuttle',
     ),
     Project(
-        title: 'TOP',
-        description:
-            'Football social platform with 70+ screens. Real-time chat with '
-            'voice messages, tournament management (league/knockout/playoff), '
-            'tactical formation builder with canvas rendering, and field booking '
-            'with payment integration.',
-        technologies: [
-          'Flutter',
-          'Riverpod',
-          'WebSocket',
-          'Firebase',
-          'Google Maps SDK',
-          'OAuth 2.0'
-        ],
-        emoji: '⚽',
-        category: 'Sports',
-        landingUrl: 'https://topsport.asia/'),
+      title: 'TOP',
+      description:
+          'Football social platform with 70+ screens. Real-time chat with '
+          'voice messages, tournament management (league/knockout/playoff), '
+          'tactical formation builder with canvas rendering, and field booking '
+          'with payment integration.',
+      technologies: [
+        'Flutter',
+        'Riverpod',
+        'WebSocket',
+        'Firebase',
+        'Google Maps SDK',
+        'OAuth 2.0'
+      ],
+      emoji: '⚽',
+      category: 'Sports',
+      landingUrl: 'https://topsport.asia/',
+      playStoreUrl:
+          'https://play.google.com/store/apps/details?id=dev.odigital.topkg',
+      appStoreUrl: 'https://apps.apple.com/kg/app/top/id6477701651',
+    ),
     Project(
       title: 'ADHDo.it',
       description:
@@ -143,6 +154,10 @@ class PortfolioData {
       emoji: '📋',
       category: 'Classifieds',
       landingUrl: 'https://oshonline.kg/',
+      playStoreUrl:
+          'https://play.google.com/store/apps/details?id=com.tologon.kudaiberdiuulu.osh.online',
+      appStoreUrl:
+          'https://apps.apple.com/us/app/%D0%BE%D1%88-online/id6444031624',
     ),
     Project(
       title: 'Appkel & Appkel Sat',
