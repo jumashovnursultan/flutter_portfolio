@@ -189,8 +189,8 @@ class _HeroSectionState extends State<HeroSection>
                   outlined: true,
                   icon: Icons.download_rounded,
                   onTap: () => downloadFromUrl(
-                      'assets/files/Flutter Developer (Жумашов Нурсултан).pdf',
-                      'Flutter Developer (Жумашов Нурсултан).pdf'),
+                      'assets/files/Flutter Developer (Jumashov Nursultan).pdf',
+                      'Flutter Developer (Jumashov Nursultan).pdf'),
                 ),
               ],
             )

@@ -70,40 +70,39 @@ class PortfolioData {
   // ── Projects ───────────────────────────────────────────────────────────────
   static const projects = [
     Project(
-        title: 'Мал Базар',
-        description:
-            'Digital agro-platform for Kyrgyzstan. Deep linking via Firebase '
-            'Dynamic Links, YouTube video playback, and favorites with '
-            'local caching and server sync.',
-        technologies: [
-          'Flutter',
-          'BLoC',
-          'Firebase',
-          'REST API',
-          'OAuth 2.0',
-          'Dynamic Links'
-        ],
-        githubUrl: 'https://github.com/yourname/mal-bazar',
-        emoji: '🐑',
-        category: 'AgriTech',
-        landingUrl: 'https://malbazar.me/'),
+      title: 'Мал Базар',
+      description:
+          'Digital agro-platform for Kyrgyzstan. Deep linking via Firebase '
+          'Dynamic Links, YouTube video playback, and favorites with '
+          'local caching and server sync.',
+      technologies: [
+        'Flutter',
+        'BLoC',
+        'Firebase',
+        'REST API',
+        'OAuth 2.0',
+        'Dynamic Links'
+      ],
+      emoji: '🐑',
+      category: 'AgriTech',
+      landingUrl: 'https://malbazar.me/',
+    ),
     Project(
-        title: 'Chelnok',
-        description:
-            'Marketplace for the sewing industry with multi-role system '
-            'for workshops, clients and users. 9 ad categories, ratings & reviews, '
-            'and OAuth 2.0 auth via Google, Apple and Yandex.',
-        technologies: [
-          'Flutter',
-          'Riverpod',
-          'Firebase',
-          'REST API',
-          'OAuth 2.0'
-        ],
-        githubUrl: 'https://github.com/yourname/chelnok',
-        emoji: '🧵',
-        category: 'E-Commerce',
-        landingUrl: 'https://chelnok.kg/'),
+      title: 'Chelnok',
+      description: 'Marketplace for the sewing industry with multi-role system '
+          'for workshops, clients and users. 9 ad categories, ratings & reviews, '
+          'and OAuth 2.0 auth via Google, Apple and Yandex.',
+      technologies: [
+        'Flutter',
+        'Riverpod',
+        'Firebase',
+        'REST API',
+        'OAuth 2.0'
+      ],
+      emoji: '🧵',
+      category: 'E-Commerce',
+      landingUrl: 'https://chelnok.kg/',
+    ),
     Project(
         title: 'TOP',
         description:
@@ -119,7 +118,6 @@ class PortfolioData {
           'Google Maps SDK',
           'OAuth 2.0'
         ],
-        githubUrl: 'https://github.com/yourname/top',
         emoji: '⚽',
         category: 'Sports',
         landingUrl: 'https://topsport.asia/'),
@@ -130,7 +128,6 @@ class PortfolioData {
           'Multi-provider auth, full CRUD with local caching via Sqflite, '
           'and background sync service for data consistency.',
       technologies: ['Flutter', 'Riverpod', 'Sqflite', 'Firebase', 'REST API'],
-      githubUrl: 'https://github.com/yourname/adhdoit',
       emoji: '✅',
       category: 'Productivity',
       appStoreUrl: 'https://apps.apple.com/us/app/dondone/id6749378933',
@@ -138,15 +135,15 @@ class PortfolioData {
           'https://play.google.com/store/apps/details?id=dev.adhdo.dondone&hl=en',
     ),
     Project(
-        title: 'Osh Online',
-        description: 'Classifieds platform for posting and browsing ads. '
-            'Optimized list performance, refactored legacy codebase, '
-            'and improved ad creation flows with better UX and validation.',
-        technologies: ['Flutter', 'BLoC', 'Firebase', 'REST API'],
-        githubUrl: 'https://github.com/yourname/osh-online',
-        emoji: '📋',
-        category: 'Classifieds',
-        landingUrl: 'https://oshonline.kg/'),
+      title: 'Osh Online',
+      description: 'Classifieds platform for posting and browsing ads. '
+          'Optimized list performance, refactored legacy codebase, '
+          'and improved ad creation flows with better UX and validation.',
+      technologies: ['Flutter', 'BLoC', 'Firebase', 'REST API'],
+      emoji: '📋',
+      category: 'Classifieds',
+      landingUrl: 'https://oshonline.kg/',
+    ),
     Project(
       title: 'Appkel & Appkel Sat',
       description:
@@ -161,36 +158,72 @@ class PortfolioData {
         'REST API',
         'MBank'
       ],
-      githubUrl: 'https://github.com/yourname/appkel',
       emoji: '🚚',
       category: 'Delivery',
       appStoreUrl: 'https://apps.apple.com/us/app/appkel/id6502715512',
     ),
     Project(
-        title: 'Ак-Эмгек',
-        description: 'Job search platform for both applicants and recruiters. '
-            'Multi-provider auth (Google, Apple), vacancy maps via Google Maps, '
-            'and recruiter verification system.',
-        technologies: [
-          'Flutter',
-          'BLoC',
-          'Firebase',
-          'Google Maps SDK',
-          'WebSocket',
-          'OAuth 2.0'
-        ],
-        githubUrl: 'https://github.com/yourname/ak-emgek',
-        emoji: '💼',
-        category: 'Recruitment',
-        playStoreUrl:
-            'https://play.google.com/store/apps/details?id=dev.odigital.ak_emgek&hl=en'),
+      title: 'Ак-Эмгек',
+      description: 'Job search platform for both applicants and recruiters. '
+          'Multi-provider auth (Google, Apple), vacancy maps via Google Maps, '
+          'and recruiter verification system.',
+      technologies: [
+        'Flutter',
+        'BLoC',
+        'Firebase',
+        'Google Maps SDK',
+        'WebSocket',
+        'OAuth 2.0'
+      ],
+      emoji: '💼',
+      category: 'Recruitment',
+      playStoreUrl:
+          'https://play.google.com/store/apps/details?id=dev.odigital.ak_emgek&hl=en',
+    ),
+    Project(
+      title: 'Drawing App',
+      description: 'Cross-platform drawing editor with Firebase integration. '
+          'Brush customization (size, color), eraser, undo, image import from gallery, '
+          'export & share, drawings gallery with thumbnail caching (10-15x faster load), '
+          'offline mode, and local notifications. Clean Architecture + BLoC.',
+      technologies: [
+        'Flutter',
+        'BLoC',
+        'Firebase',
+        'Firestore',
+        'Clean Architecture',
+        'GetIt',
+      ],
+      emoji: '🎨',
+      category: 'Productivity',
+      githubUrl: 'https://github.com/jumashovnursultan/flutter-drawing-app',
+    ),
+    Project(
+      title: 'Rick & Morty Browser',
+      description: 'Character browser app using the Rick and Morty public API. '
+          'Pagination on scroll, favorites with sorting by name/status/species, '
+          'offline mode with local DB caching, dark theme toggle, '
+          'and animations on favorites actions. Clean Architecture + Layer-First.',
+      technologies: [
+        'Flutter',
+        'Riverpod',
+        'Dio',
+        'Drift',
+        'REST API',
+        'Clean Architecture',
+      ],
+      emoji: '👽',
+      category: 'Entertainment',
+      githubUrl:
+          'https://github.com/jumashovnursultan/flutter-rick-and-morty-app',
+    ),
     Project(
       title: 'DevPortfolio',
       description:
           'This very website! A Flutter Web portfolio with smooth animations, '
           'dark theme UI, and responsive design across all screen sizes.',
       technologies: ['Flutter Web', 'flutter_animate', 'Google Fonts'],
-      githubUrl: 'https://jumashovnursultan.github.io/',
+      githubUrl: 'https://github.com/jumashovnursultan/flutter_portfolio',
       emoji: '🚀',
       category: 'Web',
     ),
